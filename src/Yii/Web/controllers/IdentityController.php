@@ -3,6 +3,8 @@
 namespace ZnTool\RestClient\Yii\Web\controllers;
 
 use kartik\alert\Alert;
+use yii\filters\AccessControl;
+use ZnSandbox\Sandbox\Yii2\Helpers\Behavior;
 use ZnBundle\User\Domain\Interfaces\Services\IdentityServiceInterface;
 use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Helpers\EntityHelper;
@@ -38,25 +40,30 @@ class IdentityController extends BaseController
         $this->accessService = $accessService;
     }
 
-    public function authentication(): array
+    public function behaviors()
     {
         return [
-            'create',
-            'update',
-            'delete',
-            'index',
-            'view',
-        ];
-    }
-
-    public function access(): array
-    {
-        return [
-            [
-                [AccountPermissionEnum::IDENTITY_READ], ['create', 'update', 'delete'],
-            ],
-            [
-                [AccountPermissionEnum::IDENTITY_WRITE], ['index', 'view'],
+            'authenticator' => Behavior::auth([
+                'create',
+                'update',
+                'delete',
+                'index',
+                'view',
+            ]),
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => [AccountPermissionEnum::IDENTITY_READ],
+                        'actions' => ['create', 'update', 'delete'],
+                    ],
+                    [
+                        'allow' => true,
+                        'roles' => [AccountPermissionEnum::IDENTITY_WRITE],
+                        'actions' => ['index', 'view'],
+                    ],
+                ],
             ],
         ];
     }

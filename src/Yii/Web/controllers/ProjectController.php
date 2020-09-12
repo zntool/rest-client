@@ -4,6 +4,8 @@ namespace ZnTool\RestClient\Yii\Web\controllers;
 
 use common\enums\rbac\PermissionEnum;
 use kartik\alert\Alert;
+use yii\filters\AccessControl;
+use ZnSandbox\Sandbox\Yii2\Helpers\Behavior;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
@@ -32,25 +34,30 @@ class ProjectController extends BaseController
         $this->environmentService = $environmentService;
     }
 
-    public function authentication(): array
+    public function behaviors()
     {
         return [
-            'create',
-            'update',
-            'delete',
-            'index',
-            'view',
-        ];
-    }
-
-    public function access(): array
-    {
-        return [
-            [
-                [RestClientPermissionEnum::ACCESS_MANAGE], ['create', 'update', 'delete'],
-            ],
-            [
-                [RestClientPermissionEnum::PROJECT_READ], ['index', 'view'],
+            'authenticator' => Behavior::auth([
+                'create',
+                'update',
+                'delete',
+                'index',
+                'view',
+            ]),
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => [RestClientPermissionEnum::ACCESS_MANAGE],
+                        'actions' => ['create', 'update', 'delete'],
+                    ],
+                    [
+                        'allow' => true,
+                        'roles' => [RestClientPermissionEnum::PROJECT_READ],
+                        'actions' => ['index', 'view'],
+                    ],
+                ],
             ],
         ];
     }

@@ -2,6 +2,7 @@
 
 namespace ZnTool\RestClient\Yii\Web\controllers;
 
+use yii\filters\AccessControl;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
 use ZnTool\RestClient\Domain\Helpers\Postman\PostmanHelper;
 use ZnTool\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
@@ -10,13 +11,8 @@ use Yii;
 use yii\base\Module;
 use yii2bundle\navigation\domain\widgets\Alert;
 use yii2bundle\rest\domain\helpers\MiscHelper;
-use yii2rails\extension\web\helpers\Behavior;
+use ZnSandbox\Sandbox\Yii2\Helpers\Behavior;
 
-/**
- * Class CollectionController
- *
- * @author Roman Zhuravlev <zhuravljov@gmail.com>
- */
 class CollectionController extends BaseController
 {
     /**
@@ -39,28 +35,24 @@ class CollectionController extends BaseController
         $this->projectService = $projectService;
     }
 
-    public function authentication(): array
+    public function behaviors()
     {
         return [
-            'link',
-            'unlink',
-        ];
-    }
-
-    public function access(): array
-    {
-        return [
-            [
-                [RestClientPermissionEnum::PROJECT_WRITE], ['link', 'unlink'],
+            'authenticator' => Behavior::auth(['link', 'unlink',]),
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => [RestClientPermissionEnum::PROJECT_WRITE],
+                        'actions' => ['link', 'unlink'],
+                    ],
+                ],
             ],
-        ];
-    }
-
-    public function verbs(): array
-    {
-        return [
-            'link' => ['post'],
-            'unlink' => ['post'],
+            'verb' => Behavior::verb([
+                'link' => ['post'],
+                'unlink' => ['post'],
+            ]),
         ];
     }
 

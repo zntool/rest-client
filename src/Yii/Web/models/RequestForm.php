@@ -5,11 +5,6 @@ namespace ZnTool\RestClient\Yii\Web\models;
 use yii\base\Model;
 use yii\validators\Validator;
 
-/**
- * Class RequestForm
- *
- * @author Roman Zhuravlev <zhuravljov@gmail.com>
- */
 class RequestForm extends Model
 {
     public $method;

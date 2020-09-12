@@ -2,17 +2,14 @@
 
 namespace ZnTool\RestClient\Yii\Web\controllers;
 
+use yii\filters\AccessControl;
+use ZnSandbox\Sandbox\Yii2\Helpers\Behavior;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
 use ZnTool\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use yii\base\Module;
 use yii2bundle\navigation\domain\widgets\Alert;
 
-/**
- * Class HistoryController
- *
- * @author Roman Zhuravlev <zhuravljov@gmail.com>
- */
 class HistoryController extends BaseController
 {
 
@@ -31,28 +28,24 @@ class HistoryController extends BaseController
         $this->projectService = $projectService;
     }
 
-    public function authentication(): array
+    public function behaviors()
     {
         return [
-            'delete',
-            'clear',
-        ];
-    }
-
-    public function access(): array
-    {
-        return [
-            [
-                [RestClientPermissionEnum::PROJECT_WRITE], ['delete', 'clear'],
+            'authenticator' => Behavior::auth(['delete', 'clear']),
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => [RestClientPermissionEnum::PROJECT_WRITE],
+                        'actions' => ['delete', 'clear'],
+                    ],
+                ],
             ],
-        ];
-    }
-
-    public function verbs(): array
-    {
-        return [
-            'delete' => ['post'],
-            'clear' => ['post'],
+            'verb' => Behavior::verb([
+                'delete' => ['post'],
+                'clear' => ['post'],
+            ]),
         ];
     }
 

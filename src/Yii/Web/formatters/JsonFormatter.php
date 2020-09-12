@@ -5,11 +5,6 @@ namespace ZnTool\RestClient\Yii\Web\formatters;
 use yii\base\InvalidArgumentException;
 use yii\helpers\Json;
 
-/**
- * Class JsonFormatter
- *
- * @author Roman Zhuravlev <zhuravljov@gmail.com>
- */
 class JsonFormatter extends RawFormatter
 {
 

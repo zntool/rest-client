@@ -6,7 +6,7 @@ use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 use yii\helpers\Json;
 use yii\web\ServerErrorHttpException;
 use yii2rails\extension\common\helpers\StringHelper;
-use yii2rails\extension\yii\helpers\ArrayHelper;
+use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
 use yii2bundle\rest\domain\entities\RequestEntity;
 use yii2bundle\rest\domain\helpers\MiscHelper;
 use yii2tool\restclient\domain\helpers\RouteHelper;

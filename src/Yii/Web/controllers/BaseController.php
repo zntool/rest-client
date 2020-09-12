@@ -8,8 +8,9 @@ use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use Yii;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
+use yii\rest\Controller;
 
-abstract class BaseController extends \ZnSandbox\Sandbox\Web\Yii2\Base\BaseController
+abstract class BaseController extends Controller
 {
     /** @var ProjectServiceInterface */
     protected $projectService;

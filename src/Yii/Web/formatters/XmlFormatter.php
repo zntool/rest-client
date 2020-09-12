@@ -4,11 +4,6 @@ namespace ZnTool\RestClient\Yii\Web\formatters;
 
 use DOMDocument;
 
-/**
- * Class XmlFormatter
- *
- * @author Roman Zhuravlev <zhuravljov@gmail.com>
- */
 class XmlFormatter extends RawFormatter
 {
 

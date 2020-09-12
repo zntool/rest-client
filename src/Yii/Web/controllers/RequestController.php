@@ -2,6 +2,8 @@
 
 namespace ZnTool\RestClient\Yii\Web\controllers;
 
+use yii\filters\AccessControl;
+use ZnSandbox\Sandbox\Yii2\Helpers\Behavior;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use ZnCore\Base\Helpers\UploadHelper;
 use ZnCore\Base\Libs\I18Next\Interfaces\Services\TranslationServiceInterface;
@@ -18,11 +20,6 @@ use Yii;
 use yii\base\Module;
 use ZnTool\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
 
-/**
- * Class RequestController
- *
- * @author Roman Zhuravlev <zhuravljov@gmail.com>
- */
 class RequestController extends BaseController
 {
     /**
@@ -56,18 +53,19 @@ class RequestController extends BaseController
         $this->transportService = $transportService;
     }
 
-    public function authentication(): array
+    public function behaviors()
     {
         return [
-            'send',
-        ];
-    }
-
-    public function access(): array
-    {
-        return [
-            [
-                [RestClientPermissionEnum::PROJECT_READ], ['send'],
+            'authenticator' => Behavior::auth(['send']),
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => [RestClientPermissionEnum::PROJECT_READ],
+                        'actions' => ['send'],
+                    ],
+                ],
             ],
         ];
     }

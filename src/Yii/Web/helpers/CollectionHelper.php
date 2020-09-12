@@ -4,7 +4,7 @@ namespace ZnTool\RestClient\Yii\Web\helpers;
 
 use Illuminate\Support\Collection;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
-use yii2rails\extension\yii\helpers\ArrayHelper;
+use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
 
 class CollectionHelper
 {

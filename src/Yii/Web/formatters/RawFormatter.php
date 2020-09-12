@@ -5,11 +5,6 @@ namespace ZnTool\RestClient\Yii\Web\formatters;
 use yii\base\ErrorException;
 use yii\base\InvalidArgumentException;
 
-/**
- * Class RawFormatter
- *
- * @author Roman Zhuravlev <zhuravljov@gmail.com>
- */
 class RawFormatter
 {
 

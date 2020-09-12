@@ -4,13 +4,6 @@ namespace ZnTool\RestClient\Yii\Web;
 
 use yii\web\AssetBundle;
 
-/**
- * Class RestAsset
- *
- * @see https://github.com/isagalaev/highlight.js
- *
- * @author Roman Zhuravlev <zhuravljov@gmail.com>
- */
 class HighlightAsset extends AssetBundle
 {
     public $baseUrl = '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0';

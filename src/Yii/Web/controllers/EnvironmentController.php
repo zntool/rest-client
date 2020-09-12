@@ -3,6 +3,8 @@
 namespace ZnTool\RestClient\Yii\Web\controllers;
 
 use kartik\alert\Alert;
+use yii\filters\AccessControl;
+use ZnSandbox\Sandbox\Yii2\Helpers\Behavior;
 use ZnBundle\User\Domain\Interfaces\Services\IdentityServiceInterface;
 use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Helpers\EntityHelper;
@@ -37,25 +39,30 @@ class EnvironmentController extends BaseController
         $this->environmentService = $environmentService;
     }
 
-    public function authentication(): array
+    public function behaviors()
     {
         return [
-            'create',
-            'update',
-            'delete',
-            'index',
-            'view',
-        ];
-    }
-
-    public function access(): array
-    {
-        return [
-            [
-                [RestClientPermissionEnum::PROJECT_READ], ['create', 'update', 'delete'],
-            ],
-            [
-                [RestClientPermissionEnum::PROJECT_READ], ['index', 'view'],
+            'authenticator' => Behavior::auth([
+                'create',
+                'update',
+                'delete',
+                'index',
+                'view',
+            ]),
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => [RestClientPermissionEnum::PROJECT_READ],
+                        'actions' => ['create', 'update', 'delete'],
+                    ],
+                    [
+                        'allow' => true,
+                        'roles' => [RestClientPermissionEnum::PROJECT_READ],
+                        'actions' => ['index', 'view'],
+                    ],
+                ],
             ],
         ];
     }

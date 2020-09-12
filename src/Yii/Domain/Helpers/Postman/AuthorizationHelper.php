@@ -4,7 +4,7 @@ namespace ZnTool\RestClient\Domain\Helpers\Postman;
 
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 use Yii;
-use yii2rails\extension\web\enums\HttpMethodEnum;
+use ZnCore\Base\Enums\Http\HttpMethodEnum;
 use yii2bundle\rest\domain\entities\RequestEntity;
 use yii2bundle\account\domain\v3\entities\TestEntity;
 
