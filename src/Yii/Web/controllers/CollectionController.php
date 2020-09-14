@@ -60,7 +60,7 @@ class CollectionController extends BaseController
     {
         $projectEntity = $this->getProjectByHash($tag);
         $this->bookmarkService->addToCollection($tag);
-        \App::$domain->navigation->alert->create('Request was added to collection successfully.', Alert::TYPE_SUCCESS);
+        \ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert::create('Request was added to collection successfully.', Alert::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/request/send', 'projectName' => $projectEntity->getName(), 'tag' => $tag]);
     }
 
@@ -68,7 +68,7 @@ class CollectionController extends BaseController
     {
         $projectEntity = $this->getProjectByHash($tag);
         $this->bookmarkService->removeByHash($tag);
-        \App::$domain->navigation->alert->create('Request was removed from collection successfully.', Alert::TYPE_SUCCESS);
+        \ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert::create('Request was removed from collection successfully.', Alert::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/request/send', 'projectName' => $projectEntity->getName()]);
     }
 

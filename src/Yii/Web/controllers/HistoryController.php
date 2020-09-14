@@ -53,7 +53,8 @@ class HistoryController extends BaseController
     {
         $projectEntity = $this->getProjectByHash($tag);
         $this->bookmarkService->removeByHash($tag);
-        \App::$domain->navigation->alert->create('Request was removed from history successfully.', Alert::TYPE_SUCCESS);
+        \ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert::create('Request was removed from history successfully.', Alert::TYPE_SUCCESS);
+        //\ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert::create('Request was removed from history successfully.', Alert::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/request/send', 'projectName' => $projectEntity->getName()]);
     }
 
@@ -61,7 +62,7 @@ class HistoryController extends BaseController
     {
         $projectEntity = $this->getProjectByName($projectName);
         $this->bookmarkService->clearHistory($projectEntity->getId());
-        \App::$domain->navigation->alert->create('History was cleared successfully.', Alert::TYPE_SUCCESS);
+        \ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert::create('History was cleared successfully.', Alert::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/request/send', 'projectName' => $projectEntity->getName()]);
     }
 }

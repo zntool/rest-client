@@ -87,7 +87,7 @@ class IdentityController extends BaseController
             } catch (UnprocessableEntityHttpException $e) {
                 ErrorHelper::handleError($e, $model);
             }
-            \App::$domain->navigation->alert->create(I18Next::t('restclient', 'identity.messages.created_success'), Alert::TYPE_SUCCESS);
+            \ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert::create(I18Next::t('restclient', 'identity.messages.created_success'), Alert::TYPE_SUCCESS);
             return $this->redirect(['/rest-client/identity/index']);
         }
         return $this->render('create', [
@@ -101,7 +101,7 @@ class IdentityController extends BaseController
             $body = Yii::$app->request->post();
             $model->load($body, 'IdentityForm');
             $this->identityService->updateById($id, $model->toArray());
-            \App::$domain->navigation->alert->create(I18Next::t('restclient', 'identity.messages.updated_success'), Alert::TYPE_SUCCESS);
+            \ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert::create(I18Next::t('restclient', 'identity.messages.updated_success'), Alert::TYPE_SUCCESS);
             return $this->redirect(['/rest-client/identity/index']);
         } else {
             $entity = $this->identityService->oneById($id);
@@ -115,7 +115,7 @@ class IdentityController extends BaseController
     public function actionDelete($id)
     {
         \App::$domain->account->identity->deleteById($id);
-        \App::$domain->navigation->alert->create(I18Next::t('restclient', 'identity.messages.deleted_success'), Alert::TYPE_SUCCESS);
+        \ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert::create(I18Next::t('restclient', 'identity.messages.deleted_success'), Alert::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/identity/index']);
     }
 
@@ -134,14 +134,14 @@ class IdentityController extends BaseController
     public function actionAttach($projectId, $userId)
     {
         $this->accessService->attach($projectId, $userId);
-        \App::$domain->navigation->alert->create(I18Next::t('restclient', 'access.messages.created_success'), Alert::TYPE_SUCCESS);
+        \ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert::create(I18Next::t('restclient', 'access.messages.created_success'), Alert::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/identity/view', 'id' => $userId]);
     }
 
     public function actionDetach($projectId, $userId)
     {
         $this->accessService->detach($projectId, $userId);
-        \App::$domain->navigation->alert->create(I18Next::t('restclient', 'access.messages.deleted_success'), Alert::TYPE_SUCCESS);
+        \ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert::create(I18Next::t('restclient', 'access.messages.deleted_success'), Alert::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/identity/view', 'id' => $userId]);
     }
 }
