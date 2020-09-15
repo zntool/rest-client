@@ -3,7 +3,7 @@
 namespace ZnTool\RestClient\Yii\Web\controllers;
 
 use common\enums\rbac\PermissionEnum;
-use kartik\alert\Alert;
+use ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert;
 use yii\filters\AccessControl;
 use ZnSandbox\Sandbox\Yii2\Helpers\Behavior;
 use ZnCore\Domain\Helpers\EntityHelper;
@@ -91,7 +91,7 @@ class ProjectController extends BaseController
             $body = Yii::$app->request->post();
             $model->load($body, 'ProjectForm');
             $this->projectService->create($model->toArray());
-            \ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert::create(I18Next::t('restclient', 'project.messages.created_success'), Alert::TYPE_SUCCESS);
+            Alert::create(I18Next::t('restclient', 'project.messages.created_success'), Alert::TYPE_SUCCESS);
             return $this->redirect(['/rest-client/project/index']);
         }
         return $this->render('create', [
@@ -101,7 +101,7 @@ class ProjectController extends BaseController
 
     public function actionDelete($id) {
         $this->projectService->deleteById($id);
-        \ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert::create(I18Next::t('restclient', 'project.messages.deleted_success'), Alert::TYPE_SUCCESS);
+        Alert::create(I18Next::t('restclient', 'project.messages.deleted_success'), Alert::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/project/index']);
     }
 
@@ -111,7 +111,7 @@ class ProjectController extends BaseController
             $body = Yii::$app->request->post();
             $model->load($body, 'ProjectForm');
             $this->projectService->updateById($id, $model->toArray());
-            \ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert::create(I18Next::t('restclient', 'project.messages.updated_success'), Alert::TYPE_SUCCESS);
+            Alert::create(I18Next::t('restclient', 'project.messages.updated_success'), Alert::TYPE_SUCCESS);
             return $this->redirect(['/rest-client/project/index']);
         } else {
             $projectEntity = $this->projectService->oneById($id);
