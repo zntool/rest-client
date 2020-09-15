@@ -2,22 +2,20 @@
 
 namespace ZnTool\RestClient\Yii\Web\controllers;
 
-use ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert;
+use Yii;
+use yii\base\Module;
 use yii\filters\AccessControl;
-use ZnSandbox\Sandbox\Yii2\Helpers\Behavior;
+use yii2bundle\account\domain\v3\enums\AccountPermissionEnum;
+use yii2rails\domain\exceptions\UnprocessableEntityHttpException;
 use ZnBundle\User\Domain\Interfaces\Services\IdentityServiceInterface;
-use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
-use ZnCore\Domain\Helpers\EntityHelper;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
+use ZnCore\Domain\Helpers\EntityHelper;
+use ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert;
+use ZnSandbox\Sandbox\Web\Yii2\Helpers\ErrorHelper;
+use ZnSandbox\Sandbox\Yii2\Helpers\Behavior;
 use ZnTool\RestClient\Domain\Interfaces\Services\AccessServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use ZnTool\RestClient\Yii\Web\models\IdentityForm;
-use Yii;
-use yii\base\Module;
-use yii2bundle\account\domain\v3\enums\AccountPermissionEnum;
-use yii2rails\domain\base\Model;
-use yii2rails\domain\exceptions\UnprocessableEntityHttpException;
-use ZnSandbox\Sandbox\Web\Yii2\Helpers\ErrorHelper;
 
 class IdentityController extends BaseController
 {
@@ -95,9 +93,10 @@ class IdentityController extends BaseController
         ]);
     }
 
-    public function actionUpdate($id) {
+    public function actionUpdate($id)
+    {
         $model = new IdentityForm;
-        if(Yii::$app->request->isPost) {
+        if (Yii::$app->request->isPost) {
             $body = Yii::$app->request->post();
             $model->load($body, 'IdentityForm');
             $this->identityService->updateById($id, $model->toArray());
