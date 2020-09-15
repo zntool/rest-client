@@ -9,7 +9,7 @@ use ZnTool\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use Yii;
 use yii\base\Module;
-use yii2bundle\navigation\domain\widgets\Alert;
+use ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert;
 use yii2bundle\rest\domain\helpers\MiscHelper;
 use ZnSandbox\Sandbox\Yii2\Helpers\Behavior;
 
