@@ -3,7 +3,7 @@
 namespace ZnTool\RestClient\Yii\Web\controllers;
 
 use common\enums\rbac\PermissionEnum;
-use ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert;
+use ZnLib\Web\Yii2\Widgets\Toastr\widgets\Alert;
 use yii\filters\AccessControl;
 use ZnLib\Rest\Yii2\Helpers\Behavior;
 use ZnCore\Domain\Helpers\EntityHelper;

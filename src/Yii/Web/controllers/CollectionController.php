@@ -9,7 +9,7 @@ use ZnTool\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use Yii;
 use yii\base\Module;
-use ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert;
+use ZnLib\Web\Yii2\Widgets\Toastr\widgets\Alert;
 use yii2bundle\rest\domain\helpers\MiscHelper;
 use ZnLib\Rest\Yii2\Helpers\Behavior;
 
@@ -60,7 +60,7 @@ class CollectionController extends BaseController
     {
         $projectEntity = $this->getProjectByHash($tag);
         $this->bookmarkService->addToCollection($tag);
-        \ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert::create('Request was added to collection successfully.', Alert::TYPE_SUCCESS);
+        \ZnLib\Web\Yii2\Widgets\Toastr\widgets\Alert::create('Request was added to collection successfully.', Alert::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/request/send', 'projectName' => $projectEntity->getName(), 'tag' => $tag]);
     }
 
@@ -68,7 +68,7 @@ class CollectionController extends BaseController
     {
         $projectEntity = $this->getProjectByHash($tag);
         $this->bookmarkService->removeByHash($tag);
-        \ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert::create('Request was removed from collection successfully.', Alert::TYPE_SUCCESS);
+        \ZnLib\Web\Yii2\Widgets\Toastr\widgets\Alert::create('Request was removed from collection successfully.', Alert::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/request/send', 'projectName' => $projectEntity->getName()]);
     }
 
