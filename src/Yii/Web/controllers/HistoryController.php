@@ -3,7 +3,7 @@
 namespace ZnTool\RestClient\Yii\Web\controllers;
 
 use yii\filters\AccessControl;
-use ZnSandbox\Sandbox\Yii2\Helpers\Behavior;
+use ZnLib\Rest\Yii2\Helpers\Behavior;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
 use ZnTool\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;

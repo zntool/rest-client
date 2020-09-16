@@ -3,7 +3,7 @@
 namespace ZnTool\RestClient\Yii\Web\controllers;
 
 use yii\filters\AccessControl;
-use ZnSandbox\Sandbox\Yii2\Helpers\Behavior;
+use ZnLib\Rest\Yii2\Helpers\Behavior;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use ZnCore\Base\Helpers\UploadHelper;
 use ZnCore\Base\Libs\I18Next\Interfaces\Services\TranslationServiceInterface;

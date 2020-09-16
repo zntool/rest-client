@@ -11,7 +11,7 @@ use Yii;
 use yii\base\Module;
 use ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert;
 use yii2bundle\rest\domain\helpers\MiscHelper;
-use ZnSandbox\Sandbox\Yii2\Helpers\Behavior;
+use ZnLib\Rest\Yii2\Helpers\Behavior;
 
 class CollectionController extends BaseController
 {

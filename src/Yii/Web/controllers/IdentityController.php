@@ -12,7 +12,7 @@ use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert;
 use ZnSandbox\Sandbox\Web\Yii2\Helpers\ErrorHelper;
-use ZnSandbox\Sandbox\Yii2\Helpers\Behavior;
+use ZnLib\Rest\Yii2\Helpers\Behavior;
 use ZnTool\RestClient\Domain\Interfaces\Services\AccessServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use ZnTool\RestClient\Yii\Web\models\IdentityForm;

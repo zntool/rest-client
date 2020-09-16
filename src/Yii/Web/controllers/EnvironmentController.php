@@ -12,7 +12,7 @@ use ZnCore\Domain\Helpers\EntityHelper;
 use ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert;
 use ZnSandbox\Sandbox\Web\Yii2\Helpers\ErrorHelper;
 use ZnSandbox\Sandbox\Yii2\Base\Model;
-use ZnSandbox\Sandbox\Yii2\Helpers\Behavior;
+use ZnLib\Rest\Yii2\Helpers\Behavior;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
 use ZnTool\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;

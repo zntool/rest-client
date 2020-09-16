@@ -5,7 +5,7 @@ namespace ZnTool\RestClient\Yii\Web\controllers;
 use common\enums\rbac\PermissionEnum;
 use ZnSandbox\Sandbox\Html\Yii2\Widgets\Toastr\widgets\Alert;
 use yii\filters\AccessControl;
-use ZnSandbox\Sandbox\Yii2\Helpers\Behavior;
+use ZnLib\Rest\Yii2\Helpers\Behavior;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
