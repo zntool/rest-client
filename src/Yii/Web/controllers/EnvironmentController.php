@@ -10,7 +10,7 @@ use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnLib\Web\Yii2\Widgets\Toastr\widgets\Alert;
-use ZnSandbox\Sandbox\Web\Yii2\Helpers\ErrorHelper;
+use ZnLib\Web\Yii2\Helpers\ErrorHelper;
 use ZnSandbox\Sandbox\Yii2\Base\Model;
 use ZnLib\Rest\Yii2\Helpers\Behavior;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
