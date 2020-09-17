@@ -5,7 +5,7 @@ namespace ZnTool\RestClient\Yii\Web\controllers;
 use Yii;
 use yii\base\Module;
 use yii\filters\AccessControl;
-use yii2bundle\account\domain\v3\enums\AccountPermissionEnum;
+use ZnBundle\User\Domain\Enums\UserPermissionEnum;
 use yii2rails\domain\exceptions\UnprocessableEntityHttpException;
 use ZnBundle\User\Domain\Interfaces\Services\IdentityServiceInterface;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;

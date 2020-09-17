@@ -13,7 +13,7 @@ use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use ZnTool\RestClient\Yii\Web\models\ProjectForm;
 use Yii;
 use yii\base\Module;
-use yii2bundle\account\domain\v3\enums\AccountPermissionEnum;
+use ZnBundle\User\Domain\Enums\UserPermissionEnum;
 use ZnTool\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
 
 class ProjectController extends BaseController
