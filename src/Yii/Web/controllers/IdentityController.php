@@ -5,14 +5,14 @@ namespace ZnTool\RestClient\Yii\Web\controllers;
 use Yii;
 use yii\base\Module;
 use yii\filters\AccessControl;
+//use yii2rails\domain\exceptions\UnprocessableEntityHttpException;
 use ZnBundle\User\Domain\Enums\UserPermissionEnum;
-use yii2rails\domain\exceptions\UnprocessableEntityHttpException;
 use ZnBundle\User\Domain\Interfaces\Services\IdentityServiceInterface;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use ZnCore\Domain\Helpers\EntityHelper;
-use ZnLib\Web\Yii2\Widgets\Toastr\widgets\Alert;
-use ZnLib\Web\Yii2\Helpers\ErrorHelper;
 use ZnLib\Rest\Yii2\Helpers\Behavior;
+use ZnLib\Web\Yii2\Helpers\ErrorHelper;
+use ZnLib\Web\Yii2\Widgets\Toastr\widgets\Alert;
 use ZnTool\RestClient\Domain\Interfaces\Services\AccessServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use ZnTool\RestClient\Yii\Web\models\IdentityForm;
@@ -53,12 +53,12 @@ class IdentityController extends BaseController
                 'rules' => [
                     [
                         'allow' => true,
-                        'roles' => [AccountPermissionEnum::IDENTITY_READ],
+                        'roles' => [UserPermissionEnum::IDENTITY_READ],
                         'actions' => ['create', 'update', 'delete'],
                     ],
                     [
                         'allow' => true,
-                        'roles' => [AccountPermissionEnum::IDENTITY_WRITE],
+                        'roles' => [UserPermissionEnum::IDENTITY_WRITE],
                         'actions' => ['index', 'view'],
                     ],
                 ],
