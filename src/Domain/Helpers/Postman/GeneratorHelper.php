@@ -2,11 +2,9 @@
 
 namespace ZnTool\RestClient\Domain\Helpers\Postman;
 
+use ZnCore\Base\Helpers\StringHelper;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
-use yii2rails\extension\common\helpers\StringHelper;
 use ZnCore\Base\Enums\Http\HttpMethodEnum;
-use yii2bundle\rest\domain\entities\RequestEntity;
-use yii2bundle\rest\domain\helpers\MiscHelper;
 
 class GeneratorHelper {
 	

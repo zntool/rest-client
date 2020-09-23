@@ -39,7 +39,7 @@ class CollectionController extends BaseController
     {
         return [
             'authenticator' => Behavior::auth(['link', 'unlink',]),
-            'access' => [
+            /*'access' => [
                 'class' => AccessControl::class,
                 'rules' => [
                     [
@@ -48,7 +48,7 @@ class CollectionController extends BaseController
                         'actions' => ['link', 'unlink'],
                     ],
                 ],
-            ],
+            ],*/
             'verb' => Behavior::verb([
                 'link' => ['post'],
                 'unlink' => ['post'],
