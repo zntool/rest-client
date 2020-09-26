@@ -16,7 +16,7 @@ class m_2020_02_19_183739_create_bookmark_table extends BaseCreateTableMigration
     {
         return function (Blueprint $table) {
             $table->integer('id')->autoIncrement()->comment('Идентификатор');
-            $table->char('hash')->comment('Хэш от (project_id.method.uri.query.body.header.authorization)');
+            $table->string('hash')->comment('Хэш от (project_id.method.uri.query.body.header.authorization)');
             $table->integer('project_id')->comment('Проект');
             $table->string('method')->comment('Метод запроса');
             $table->string('uri')->comment('Внутренняя ссылка на ресурс');
