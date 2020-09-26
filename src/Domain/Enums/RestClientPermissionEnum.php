@@ -2,9 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Enums;
 
-use ZnCore\Domain\Base\BaseEnum;
-
-class RestClientPermissionEnum extends BaseEnum
+class RestClientPermissionEnum
 {
 
     const PROJECT_WRITE = 'oRestClientProjectWrite';
@@ -13,15 +11,16 @@ class RestClientPermissionEnum extends BaseEnum
     const ACCESS_MANAGE = 'oRestClientAccessManage';
 
     /** @deprecated */
-    const CLIENT_ALL = 'oRestClientAll';
+    //const CLIENT_ALL = 'oRestClientAll';
 
-    public static function getLabels() {
+    public static function getLabels()
+    {
         return [
             self::PROJECT_WRITE => 'REST-клиент. Модификация проекта',
             self::PROJECT_READ => 'REST-клиент. Чтение проекта',
             self::PROJECT_MANAGE => 'REST-клиент. Управление проектом',
             self::ACCESS_MANAGE => 'REST-клиент. Управление доступами к проектам',
-            self::CLIENT_ALL => 'Доступ к REST-клиенту',
+            //self::CLIENT_ALL => 'Доступ к REST-клиенту',
         ];
     }
 

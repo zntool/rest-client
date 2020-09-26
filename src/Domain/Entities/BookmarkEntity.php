@@ -2,6 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Entities;
 
+use ZnCore\Base\Helpers\EnumHelper;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
 use ZnCore\Domain\Interfaces\Entity\ValidateEntityInterface;
 use ZnCore\Base\Enums\Http\HttpMethodEnum;
@@ -41,7 +42,7 @@ class BookmarkEntity implements ValidateEntityInterface, EntityIdInterface
             ],
             'method' => [
                 new Assert\NotBlank,
-                new Assert\Choice(HttpMethodEnum::values()),
+                new Assert\Choice(EnumHelper::getValues(HttpMethodEnum::class)),
             ],
             'uri' => [
                 new Assert\NotBlank,
