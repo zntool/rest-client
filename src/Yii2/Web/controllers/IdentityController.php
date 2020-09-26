@@ -81,7 +81,9 @@ class IdentityController extends BaseController
             $body = Yii::$app->request->post();
             $model->load($body, 'IdentityForm');
             try {
-                \App::$domain->account->identity->create($model->toArray());
+                //dd($model->toArray());
+                $this->identityService->create($model->toArray());
+                //\App::$domain->account->identity->create($model->toArray());
             } catch (UnprocessableEntityHttpException $e) {
                 ErrorHelper::handleError($e, $model);
             }
