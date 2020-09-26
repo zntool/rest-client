@@ -2,7 +2,9 @@
 
 namespace ZnTool\RestClient\Domain\Enums;
 
-class RestClientPermissionEnum
+use ZnCore\Base\Interfaces\GetLabelsInterface;
+
+class RestClientPermissionEnum implements GetLabelsInterface
 {
 
     const PROJECT_WRITE = 'oRestClientProjectWrite';
