@@ -2,19 +2,18 @@
 
 namespace ZnTool\RestClient\Yii2\Web\controllers;
 
-use common\enums\rbac\PermissionEnum;
-use ZnLib\Web\Yii2\Widgets\Toastr\widgets\Alert;
-use yii\filters\AccessControl;
-use ZnLib\Rest\Yii2\Helpers\Behavior;
-use ZnCore\Domain\Helpers\EntityHelper;
-use ZnCore\Base\Libs\I18Next\Facades\I18Next;
-use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
-use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
-use ZnTool\RestClient\Yii2\Web\models\ProjectForm;
+use common\enums\rbac\ApplicationPermissionEnum;
 use Yii;
 use yii\base\Module;
-use ZnBundle\User\Domain\Enums\UserPermissionEnum;
+use yii\filters\AccessControl;
+use ZnCore\Base\Libs\I18Next\Facades\I18Next;
+use ZnCore\Domain\Helpers\EntityHelper;
+use ZnLib\Rest\Yii2\Helpers\Behavior;
+use ZnLib\Web\Yii2\Widgets\Toastr\widgets\Alert;
+use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
 use ZnTool\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
+use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
+use ZnTool\RestClient\Yii2\Web\models\ProjectForm;
 
 class ProjectController extends BaseController
 {
@@ -64,7 +63,7 @@ class ProjectController extends BaseController
 
     public function actionIndex()
     {
-        if(Yii::$app->user->can(PermissionEnum::BACKEND_ALL)) {
+        if (Yii::$app->user->can(ApplicationPermissionEnum::BACKEND_ALL)) {
             $projectCollection = $this->projectService->all();
         } else {
             $projectCollection = $this->projectService->allByUserId(Yii::$app->user->identity->id);
@@ -87,7 +86,7 @@ class ProjectController extends BaseController
     public function actionCreate()
     {
         $model = new ProjectForm;
-        if(Yii::$app->request->isPost) {
+        if (Yii::$app->request->isPost) {
             $body = Yii::$app->request->post();
             $model->load($body, 'ProjectForm');
             $this->projectService->create($model->toArray());
@@ -99,15 +98,17 @@ class ProjectController extends BaseController
         ]);
     }
 
-    public function actionDelete($id) {
+    public function actionDelete($id)
+    {
         $this->projectService->deleteById($id);
         Alert::create(I18Next::t('restclient', 'project.messages.deleted_success'), Alert::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/project/index']);
     }
 
-    public function actionUpdate($id) {
+    public function actionUpdate($id)
+    {
         $model = new ProjectForm;
-        if(Yii::$app->request->isPost) {
+        if (Yii::$app->request->isPost) {
             $body = Yii::$app->request->post();
             $model->load($body, 'ProjectForm');
             $this->projectService->updateById($id, $model->toArray());

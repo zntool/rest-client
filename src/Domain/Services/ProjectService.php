@@ -2,7 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Services;
 
-use common\enums\rbac\PermissionEnum;
+use common\enums\rbac\ApplicationPermissionEnum;
 use ZnCore\Domain\Entities\Query\Where;
 use ZnCore\Domain\Enums\OperatorEnum;
 use ZnCore\Domain\Helpers\EntityHelper;
@@ -55,7 +55,7 @@ class ProjectService extends BaseCrudService implements ProjectServiceInterface
 
     public function isAllowProject(int $projectId, int $userId)
     {
-        if (Yii::$app->user->can(PermissionEnum::BACKEND_ALL)) {
+        if (Yii::$app->user->can(ApplicationPermissionEnum::BACKEND_ALL)) {
             return true;
         }
         try {
