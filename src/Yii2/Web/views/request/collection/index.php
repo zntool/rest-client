@@ -19,9 +19,10 @@ use ZnTool\RestClient\Yii2\Web\helpers\CollectionHelper;
         <a href="#collection" data-toggle="tab">
             Collection
             <?php
-            $count = array_reduce(EntityHelper::collectionToArray($collection), function ($sum, $rows) {
+            /*$count = array_reduce(EntityHelper::collectionToArray($collection), function ($sum, $rows) {
                 return $sum + count($rows);
-            }, 0);
+            }, 0);*/
+            $count = 0;
             echo Html::tag('span', $count, [
                 'class' => 'counter' . (!$count ? ' hidden' : '')
             ]);
