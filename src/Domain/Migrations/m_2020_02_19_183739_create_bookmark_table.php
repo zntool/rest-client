@@ -10,7 +10,7 @@ class m_2020_02_19_183739_create_bookmark_table extends BaseCreateTableMigration
 {
 
     protected $tableName = 'restclient_bookmark';
-    protected $tableComment = '';
+    protected $tableComment = 'Избранное';
 
     public function tableSchema()
     {

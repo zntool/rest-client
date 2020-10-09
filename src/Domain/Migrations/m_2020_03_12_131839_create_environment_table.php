@@ -12,16 +12,16 @@ if ( ! class_exists(m_2020_03_12_131839_create_environment_table::class)) {
     {
 
         protected $tableName = 'restclient_environment';
-        protected $tableComment = '';
+        protected $tableComment = 'Окружение';
 
         public function tableSchema()
         {
             return function (Blueprint $table) {
                 $table->integer('id')->autoIncrement()->comment('Идентификатор');
-                $table->integer('project_id')->comment('');
-                $table->boolean('is_main')->default(false)->comment('');
-                $table->string('title')->comment('');
-                $table->string('url')->comment('');
+                $table->integer('project_id')->comment('ID проекта');
+                $table->boolean('is_main')->default(false)->comment('Является ли окружением по умолчанию?');
+                $table->string('title')->comment('Название');
+                $table->string('url')->comment('URL для API');
                 $table
                     ->foreign('project_id')
                     ->references('id')

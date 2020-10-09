@@ -10,16 +10,16 @@ class m_2020_02_22_101059_create_authorization_table extends BaseCreateTableMigr
 {
 
     protected $tableName = 'restclient_authorization';
-    protected $tableComment = '';
+    protected $tableComment = 'Авторизация на API';
 
     public function tableSchema()
     {
         return function (Blueprint $table) {
             $table->integer('id')->autoIncrement()->comment('Идентификатор');
-            $table->integer('project_id')->comment('');
-            $table->string('type')->comment('');
-            $table->string('username')->comment('');
-            $table->string('password')->comment('');
+            $table->integer('project_id')->comment('ID проекта');
+            $table->string('type')->comment('Тип авторизации (bearer, basic)');
+            $table->string('username')->comment('Логин пользователя');
+            $table->string('password')->comment('Пароль пользователя');
             $table
                 ->foreign('project_id')
                 ->references('id')
