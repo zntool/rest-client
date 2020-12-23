@@ -14,7 +14,7 @@ class ProjectEntity implements EntityIdInterface, ValidateEntityInterface
     private $name = null;
     private $title = null;
     private $url = null;
-    private $status = StatusEnum::ENABLE;
+    private $status = StatusEnum::ENABLED;
 
     public function validationRules(): array
     {
