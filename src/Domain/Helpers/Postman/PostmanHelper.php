@@ -26,7 +26,7 @@ class PostmanHelper {
     }
 
     private static function getGroup($url, $index = 0) {
-        return explode(SL, $url)[$index];
+        return explode('/', $url)[$index];
     }
 
 	public static function genFromCollection($groups, $apiVersion) {
