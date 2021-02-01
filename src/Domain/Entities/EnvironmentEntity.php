@@ -3,10 +3,11 @@
 namespace ZnTool\RestClient\Domain\Entities;
 
 use Symfony\Component\Validator\Constraints as Assert;
-use ZnCore\Domain\Interfaces\Entity\ValidateEntityInterface;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use ZnCore\Domain\Interfaces\Entity\ValidateEntityByMetadataInterface;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
 
-class EnvironmentEntity implements ValidateEntityInterface, EntityIdInterface
+class EnvironmentEntity implements ValidateEntityByMetadataInterface, EntityIdInterface
 {
 
     private $id = null;
@@ -15,19 +16,10 @@ class EnvironmentEntity implements ValidateEntityInterface, EntityIdInterface
     private $title = null;
     private $url = null;
 
-    public function validationRules()
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
-        return [
-            /*'id' => [
-                new Assert\NotBlank,
-            ],*/
-            'title' => [
-                new Assert\NotBlank,
-            ],
-            'url' => [
-                new Assert\NotBlank,
-            ],
-        ];
+        $metadata->addPropertyConstraint('title', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('url', new Assert\NotBlank);
     }
 
     public function setId($value) : void

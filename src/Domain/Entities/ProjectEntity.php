@@ -2,12 +2,13 @@
 
 namespace ZnTool\RestClient\Domain\Entities;
 
+use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
-use ZnCore\Domain\Interfaces\Entity\ValidateEntityInterface;
+use ZnCore\Domain\Interfaces\Entity\ValidateEntityByMetadataInterface;
 use ZnCore\Base\Enums\StatusEnum;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class ProjectEntity implements EntityIdInterface, ValidateEntityInterface
+class ProjectEntity implements EntityIdInterface, ValidateEntityByMetadataInterface
 {
 
     private $id = null;
@@ -16,25 +17,12 @@ class ProjectEntity implements EntityIdInterface, ValidateEntityInterface
     private $url = null;
     private $status = StatusEnum::ENABLED;
 
-    public function validationRules(): array
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
-        return [
-            'name' => [
-                new Assert\NotBlank,
-                new Assert\Regex(['pattern' => '/[a-zA-Z0-9-]+/i']),
-            ],
-            'title' => [
-                new Assert\NotBlank,
-            ],
-            /*'url' => [
-                new Assert\NotBlank,
-                new Assert\Url,
-            ],*/
-            'status' => [
-                new Assert\NotBlank,
-                //new Assert\Choice(StatusEnum::values()),
-            ],
-        ];
+        $metadata->addPropertyConstraint('name', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('name', new Assert\Regex(['pattern' => '/[a-zA-Z0-9-]+/i']));
+        $metadata->addPropertyConstraint('title', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('status', new Assert\NotBlank);
     }
 
     public function setId($value)

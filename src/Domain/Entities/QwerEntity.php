@@ -3,16 +3,17 @@
 namespace ZnTool\RestClient\Domain\Entities;
 
 use Symfony\Component\Validator\Constraints as Assert;
-use ZnCore\Domain\Interfaces\Entity\ValidateEntityInterface;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use ZnCore\Domain\Interfaces\Entity\ValidateEntityByMetadataInterface;
 
-class QwerEntity implements ValidateEntityInterface
+class QwerEntity implements ValidateEntityByMetadataInterface
 {
 
     private $title = null;
 
-    public function validationRules()
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
-        return [];
+
     }
 
     public function setTitle($value)

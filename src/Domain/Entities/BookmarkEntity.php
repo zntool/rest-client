@@ -2,14 +2,15 @@
 
 namespace ZnTool\RestClient\Domain\Entities;
 
+use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnCore\Base\Helpers\EnumHelper;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
-use ZnCore\Domain\Interfaces\Entity\ValidateEntityInterface;
+use ZnCore\Domain\Interfaces\Entity\ValidateEntityByMetadataInterface;
 use ZnCore\Base\Enums\Http\HttpMethodEnum;
 use ZnTool\RestClient\Domain\Helpers\BookmarkHelper;
 use Symfony\Component\Validator\Constraints as Assert;
 
-class BookmarkEntity implements ValidateEntityInterface, EntityIdInterface
+class BookmarkEntity implements ValidateEntityByMetadataInterface, EntityIdInterface
 {
 
     private $id = null;
@@ -30,25 +31,14 @@ class BookmarkEntity implements ValidateEntityInterface, EntityIdInterface
     private $description = null;
     private $status = null;
 
-    public function validationRules(): array
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
-        return [
-            'hash' => [
-                new Assert\NotBlank,
-            ],
-            'projectId' => [
-                new Assert\NotBlank,
-                new Assert\Positive,
-            ],
-            'method' => [
-                new Assert\NotBlank,
-                new Assert\Choice(EnumHelper::getValues(HttpMethodEnum::class)),
-            ],
-            'uri' => [
-                new Assert\NotBlank,
-            ],
-
-        ];
+        $metadata->addPropertyConstraint('hash', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('projectId', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('projectId', new Assert\Positive);
+        $metadata->addPropertyConstraint('method', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('method', new Assert\Choice(EnumHelper::getValues(HttpMethodEnum::class)));
+        $metadata->addPropertyConstraint('uri', new Assert\NotBlank);
     }
 
     public function setId($value)
