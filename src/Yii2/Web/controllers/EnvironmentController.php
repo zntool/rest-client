@@ -11,7 +11,7 @@ use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnLib\Rest\Yii2\Helpers\Behavior;
 use ZnLib\Web\Yii2\Helpers\ErrorHelper;
-use ZnYii\Web\Widgets\Toastr\Alert;
+use ZnYii\Web\Widgets\Toastr\Toastr;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
 use ZnTool\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
@@ -73,7 +73,7 @@ class EnvironmentController extends BaseController
             $model->load($body, 'EnvironmentForm');
             try {
                 $this->environmentService->create($model->toArray());
-                Alert::create(I18Next::t('restclient', 'environment.messages.created_success'), Alert::TYPE_SUCCESS);
+                Toastr::create(I18Next::t('restclient', 'environment.messages.created_success'), Toastr::TYPE_SUCCESS);
                 return $this->redirect(['/rest-client/project/view', 'id' => $projectEntity->getId()]);
             } catch (UnprocessibleEntityException $e) {
                 ErrorHelper::handleError($e, $model);
@@ -94,7 +94,7 @@ class EnvironmentController extends BaseController
             $model->load($body, 'EnvironmentForm');
             try {
                 $this->environmentService->updateById($id, $model->toArray());
-                Alert::create(I18Next::t('restclient', 'environment.messages.updated_success'), Alert::TYPE_SUCCESS);
+                Toastr::create(I18Next::t('restclient', 'environment.messages.updated_success'), Toastr::TYPE_SUCCESS);
                 return $this->redirect(['/rest-client/project/view', 'id' => $environmentEntity->getProjectId()]);
             } catch (UnprocessibleEntityException $e) {
                 ErrorHelper::handleError($e, $model);
@@ -112,7 +112,7 @@ class EnvironmentController extends BaseController
     {
         $environmentEntity = $this->environmentService->oneById($id);
         $this->environmentService->deleteById($id);
-        Alert::create(I18Next::t('restclient', 'environment.messages.deleted_success'), Alert::TYPE_SUCCESS);
+        Toastr::create(I18Next::t('restclient', 'environment.messages.deleted_success'), Toastr::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/project/view', 'id' => $environmentEntity->getProjectId()]);
     }
 

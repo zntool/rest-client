@@ -12,7 +12,7 @@ use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnLib\Rest\Yii2\Helpers\Behavior;
 use ZnLib\Web\Yii2\Helpers\ErrorHelper;
-use ZnYii\Web\Widgets\Toastr\Alert;
+use ZnYii\Web\Widgets\Toastr\Toastr;
 use ZnTool\RestClient\Domain\Interfaces\Services\AccessServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use ZnTool\RestClient\Yii2\Web\models\IdentityForm;
@@ -81,13 +81,11 @@ class IdentityController extends BaseController
             $body = Yii::$app->request->post();
             $model->load($body, 'IdentityForm');
             try {
-                //dd($model->toArray());
                 $this->identityService->create($model->toArray());
-                //\App::$domain->account->identity->create($model->toArray());
             } catch (UnprocessableEntityHttpException $e) {
                 ErrorHelper::handleError($e, $model);
             }
-            Alert::create(I18Next::t('restclient', 'identity.messages.created_success'), Alert::TYPE_SUCCESS);
+            Toastr::create(I18Next::t('restclient', 'identity.messages.created_success'), Toastr::TYPE_SUCCESS);
             return $this->redirect(['/rest-client/identity/index']);
         }
         return $this->render('create', [
@@ -102,7 +100,7 @@ class IdentityController extends BaseController
             $body = Yii::$app->request->post();
             $model->load($body, 'IdentityForm');
             $this->identityService->updateById($id, $model->toArray());
-            Alert::create(I18Next::t('restclient', 'identity.messages.updated_success'), Alert::TYPE_SUCCESS);
+            Toastr::create(I18Next::t('restclient', 'identity.messages.updated_success'), Toastr::TYPE_SUCCESS);
             return $this->redirect(['/rest-client/identity/index']);
         } else {
             $entity = $this->identityService->oneById($id);
@@ -115,8 +113,8 @@ class IdentityController extends BaseController
 
     public function actionDelete($id)
     {
-        \App::$domain->account->identity->deleteById($id);
-        Alert::create(I18Next::t('restclient', 'identity.messages.deleted_success'), Alert::TYPE_SUCCESS);
+        $this->identityService->deleteById($id);
+        Toastr::create(I18Next::t('restclient', 'identity.messages.deleted_success'), Toastr::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/identity/index']);
     }
 
@@ -135,14 +133,14 @@ class IdentityController extends BaseController
     public function actionAttach($projectId, $userId)
     {
         $this->accessService->attach($projectId, $userId);
-        Alert::create(I18Next::t('restclient', 'access.messages.created_success'), Alert::TYPE_SUCCESS);
+        Toastr::create(I18Next::t('restclient', 'access.messages.created_success'), Toastr::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/identity/view', 'id' => $userId]);
     }
 
     public function actionDetach($projectId, $userId)
     {
         $this->accessService->detach($projectId, $userId);
-        Alert::create(I18Next::t('restclient', 'access.messages.deleted_success'), Alert::TYPE_SUCCESS);
+        Toastr::create(I18Next::t('restclient', 'access.messages.deleted_success'), Toastr::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/identity/view', 'id' => $userId]);
     }
 }

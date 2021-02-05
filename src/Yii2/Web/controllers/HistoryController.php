@@ -8,7 +8,7 @@ use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
 use ZnTool\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use yii\base\Module;
-use ZnYii\Web\Widgets\Toastr\Alert;
+use ZnYii\Web\Widgets\Toastr\Toastr;
 
 class HistoryController extends BaseController
 {
@@ -53,8 +53,8 @@ class HistoryController extends BaseController
     {
         $projectEntity = $this->getProjectByHash($tag);
         $this->bookmarkService->removeByHash($tag);
-        \ZnYii\Web\Widgets\Toastr\Alert::create('Request was removed from history successfully.', Alert::TYPE_SUCCESS);
-        //\ZnYii\Web\Widgets\Toastr\Alert::create('Request was removed from history successfully.', Alert::TYPE_SUCCESS);
+        \ZnYii\Web\Widgets\Toastr\Toastr::create('Request was removed from history successfully.', Toastr::TYPE_SUCCESS);
+        //\ZnYii\Web\Widgets\Toastr\Toastr::create('Request was removed from history successfully.', Toastr::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/request/send', 'projectName' => $projectEntity->getName()]);
     }
 
@@ -62,7 +62,7 @@ class HistoryController extends BaseController
     {
         $projectEntity = $this->getProjectByName($projectName);
         $this->bookmarkService->clearHistory($projectEntity->getId());
-        \ZnYii\Web\Widgets\Toastr\Alert::create('History was cleared successfully.', Alert::TYPE_SUCCESS);
+        \ZnYii\Web\Widgets\Toastr\Toastr::create('History was cleared successfully.', Toastr::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/request/send', 'projectName' => $projectEntity->getName()]);
     }
 }

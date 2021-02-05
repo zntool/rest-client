@@ -9,7 +9,7 @@ use yii\filters\AccessControl;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnLib\Rest\Yii2\Helpers\Behavior;
-use ZnYii\Web\Widgets\Toastr\Alert;
+use ZnYii\Web\Widgets\Toastr\Toastr;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
 use ZnTool\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
@@ -90,7 +90,7 @@ class ProjectController extends BaseController
             $body = Yii::$app->request->post();
             $model->load($body, 'ProjectForm');
             $this->projectService->create($model->toArray());
-            Alert::create(I18Next::t('restclient', 'project.messages.created_success'), Alert::TYPE_SUCCESS);
+            Toastr::create(I18Next::t('restclient', 'project.messages.created_success'), Toastr::TYPE_SUCCESS);
             return $this->redirect(['/rest-client/project/index']);
         }
         return $this->render('create', [
@@ -101,7 +101,7 @@ class ProjectController extends BaseController
     public function actionDelete($id)
     {
         $this->projectService->deleteById($id);
-        Alert::create(I18Next::t('restclient', 'project.messages.deleted_success'), Alert::TYPE_SUCCESS);
+        Toastr::create(I18Next::t('restclient', 'project.messages.deleted_success'), Toastr::TYPE_SUCCESS);
         return $this->redirect(['/rest-client/project/index']);
     }
 
@@ -112,7 +112,7 @@ class ProjectController extends BaseController
             $body = Yii::$app->request->post();
             $model->load($body, 'ProjectForm');
             $this->projectService->updateById($id, $model->toArray());
-            Alert::create(I18Next::t('restclient', 'project.messages.updated_success'), Alert::TYPE_SUCCESS);
+            Toastr::create(I18Next::t('restclient', 'project.messages.updated_success'), Toastr::TYPE_SUCCESS);
             return $this->redirect(['/rest-client/project/index']);
         } else {
             $projectEntity = $this->projectService->oneById($id);
