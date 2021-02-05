@@ -2,12 +2,12 @@
 
 namespace ZnTool\RestClient\Yii2\Web\controllers;
 
+use yii\base\Module;
 use yii\filters\AccessControl;
 use ZnLib\Rest\Yii2\Helpers\Behavior;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
 use ZnTool\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
-use yii\base\Module;
 use ZnYii\Web\Widgets\Toastr\Toastr;
 
 class HistoryController extends BaseController

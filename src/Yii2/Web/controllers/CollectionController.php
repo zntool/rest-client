@@ -2,16 +2,14 @@
 
 namespace ZnTool\RestClient\Yii2\Web\controllers;
 
-use yii\filters\AccessControl;
-use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
+use Yii;
+use yii\base\Module;
+use yii2bundle\rest\domain\helpers\MiscHelper;
+use ZnLib\Rest\Yii2\Helpers\Behavior;
 use ZnTool\RestClient\Domain\Helpers\Postman\PostmanHelper;
 use ZnTool\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
-use Yii;
-use yii\base\Module;
 use ZnYii\Web\Widgets\Toastr\Toastr;
-use yii2bundle\rest\domain\helpers\MiscHelper;
-use ZnLib\Rest\Yii2\Helpers\Behavior;
 
 class CollectionController extends BaseController
 {
