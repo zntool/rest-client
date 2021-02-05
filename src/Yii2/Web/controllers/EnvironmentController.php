@@ -5,6 +5,7 @@ namespace ZnTool\RestClient\Yii2\Web\controllers;
 use Yii;
 use yii\base\Module;
 use yii\filters\AccessControl;
+use ZnBundle\Notify\Domain\Interfaces\Services\ToastrServiceInterface;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Helpers\EntityHelper;
@@ -14,24 +15,26 @@ use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
 use ZnTool\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use ZnTool\RestClient\Yii2\Web\models\EnvironmentForm;
-use ZnYii\Web\Widgets\Toastr\Toastr;
 
 class EnvironmentController extends BaseController
 {
 
     protected $projectService;
     protected $environmentService;
+    private $toastrService;
 
     public function __construct(
         $id, Module $module,
         array $config = [],
         ProjectServiceInterface $projectService,
-        EnvironmentServiceInterface $environmentService
+        EnvironmentServiceInterface $environmentService,
+        ToastrServiceInterface $toastrService
     )
     {
         parent::__construct($id, $module, $config);
         $this->projectService = $projectService;
         $this->environmentService = $environmentService;
+        $this->toastrService = $toastrService;
     }
 
     public function behaviors()
@@ -72,7 +75,7 @@ class EnvironmentController extends BaseController
             $model->load($body, 'EnvironmentForm');
             try {
                 $this->environmentService->create($model->toArray());
-                Toastr::create(I18Next::t('restclient', 'environment.messages.created_success'), Toastr::TYPE_SUCCESS);
+                $this->toastrService->success(I18Next::t('restclient', 'environment.messages.created_success'));
                 return $this->redirect(['/rest-client/project/view', 'id' => $projectEntity->getId()]);
             } catch (UnprocessibleEntityException $e) {
                 ErrorHelper::handleError($e, $model);
@@ -93,7 +96,7 @@ class EnvironmentController extends BaseController
             $model->load($body, 'EnvironmentForm');
             try {
                 $this->environmentService->updateById($id, $model->toArray());
-                Toastr::create(I18Next::t('restclient', 'environment.messages.updated_success'), Toastr::TYPE_SUCCESS);
+                $this->toastrService->success(I18Next::t('restclient', 'environment.messages.updated_success'));
                 return $this->redirect(['/rest-client/project/view', 'id' => $environmentEntity->getProjectId()]);
             } catch (UnprocessibleEntityException $e) {
                 ErrorHelper::handleError($e, $model);
@@ -111,7 +114,7 @@ class EnvironmentController extends BaseController
     {
         $environmentEntity = $this->environmentService->oneById($id);
         $this->environmentService->deleteById($id);
-        Toastr::create(I18Next::t('restclient', 'environment.messages.deleted_success'), Toastr::TYPE_SUCCESS);
+        $this->toastrService->success(I18Next::t('restclient', 'environment.messages.deleted_success'));
         return $this->redirect(['/rest-client/project/view', 'id' => $environmentEntity->getProjectId()]);
     }
 

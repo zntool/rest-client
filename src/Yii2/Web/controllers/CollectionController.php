@@ -5,11 +5,11 @@ namespace ZnTool\RestClient\Yii2\Web\controllers;
 use Yii;
 use yii\base\Module;
 use yii2bundle\rest\domain\helpers\MiscHelper;
+use ZnBundle\Notify\Domain\Interfaces\Services\ToastrServiceInterface;
 use ZnLib\Rest\Yii2\Helpers\Behavior;
 use ZnTool\RestClient\Domain\Helpers\Postman\PostmanHelper;
 use ZnTool\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
-use ZnYii\Web\Widgets\Toastr\Toastr;
 
 class CollectionController extends BaseController
 {
@@ -20,17 +20,20 @@ class CollectionController extends BaseController
 
     protected $bookmarkService;
     protected $projectService;
+    private $toastrService;
 
     public function __construct(
         $id, Module $module,
         array $config = [],
         BookmarkServiceInterface $bookmarkService,
-        ProjectServiceInterface $projectService
+        ProjectServiceInterface $projectService,
+        ToastrServiceInterface $toastrService
     )
     {
         parent::__construct($id, $module, $config);
         $this->bookmarkService = $bookmarkService;
         $this->projectService = $projectService;
+        $this->toastrService = $toastrService;
     }
 
     public function behaviors()
@@ -58,7 +61,7 @@ class CollectionController extends BaseController
     {
         $projectEntity = $this->getProjectByHash($tag);
         $this->bookmarkService->addToCollection($tag);
-        \ZnYii\Web\Widgets\Toastr\Toastr::create('Request was added to collection successfully.', Toastr::TYPE_SUCCESS);
+        $this->toastrService->success('Request was added to collection successfully.');
         return $this->redirect(['/rest-client/request/send', 'projectName' => $projectEntity->getName(), 'tag' => $tag]);
     }
 
@@ -66,7 +69,7 @@ class CollectionController extends BaseController
     {
         $projectEntity = $this->getProjectByHash($tag);
         $this->bookmarkService->removeByHash($tag);
-        \ZnYii\Web\Widgets\Toastr\Toastr::create('Request was removed from collection successfully.', Toastr::TYPE_SUCCESS);
+        $this->toastrService->success('Request was removed from collection successfully.');
         return $this->redirect(['/rest-client/request/send', 'projectName' => $projectEntity->getName()]);
     }
 

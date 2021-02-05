@@ -4,28 +4,31 @@ namespace ZnTool\RestClient\Yii2\Web\controllers;
 
 use yii\base\Module;
 use yii\filters\AccessControl;
+use ZnBundle\Notify\Domain\Interfaces\Services\ToastrServiceInterface;
 use ZnLib\Rest\Yii2\Helpers\Behavior;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
 use ZnTool\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
-use ZnYii\Web\Widgets\Toastr\Toastr;
 
 class HistoryController extends BaseController
 {
 
     protected $bookmarkService;
     protected $projectService;
+    private $toastrService;
 
     public function __construct(
         $id, Module $module,
         array $config = [],
         BookmarkServiceInterface $bookmarkService,
-        ProjectServiceInterface $projectService
+        ProjectServiceInterface $projectService,
+        ToastrServiceInterface $toastrService
     )
     {
         parent::__construct($id, $module, $config);
         $this->bookmarkService = $bookmarkService;
         $this->projectService = $projectService;
+        $this->toastrService = $toastrService;
     }
 
     public function behaviors()
@@ -53,8 +56,8 @@ class HistoryController extends BaseController
     {
         $projectEntity = $this->getProjectByHash($tag);
         $this->bookmarkService->removeByHash($tag);
-        \ZnYii\Web\Widgets\Toastr\Toastr::create('Request was removed from history successfully.', Toastr::TYPE_SUCCESS);
-        //\ZnYii\Web\Widgets\Toastr\Toastr::create('Request was removed from history successfully.', Toastr::TYPE_SUCCESS);
+        $this->toastrService->success('Request was removed from history successfully.');
+        //$this->toastrService->success('Request was removed from history successfully.');
         return $this->redirect(['/rest-client/request/send', 'projectName' => $projectEntity->getName()]);
     }
 
@@ -62,7 +65,7 @@ class HistoryController extends BaseController
     {
         $projectEntity = $this->getProjectByName($projectName);
         $this->bookmarkService->clearHistory($projectEntity->getId());
-        \ZnYii\Web\Widgets\Toastr\Toastr::create('History was cleared successfully.', Toastr::TYPE_SUCCESS);
+        $this->toastrService->success('History was cleared successfully.');
         return $this->redirect(['/rest-client/request/send', 'projectName' => $projectEntity->getName()]);
     }
 }

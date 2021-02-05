@@ -6,6 +6,7 @@ use common\enums\rbac\ApplicationPermissionEnum;
 use Yii;
 use yii\base\Module;
 use yii\filters\AccessControl;
+use ZnBundle\Notify\Domain\Interfaces\Services\ToastrServiceInterface;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnLib\Rest\Yii2\Helpers\Behavior;
@@ -13,24 +14,26 @@ use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
 use ZnTool\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use ZnTool\RestClient\Yii2\Web\models\ProjectForm;
-use ZnYii\Web\Widgets\Toastr\Toastr;
 
 class ProjectController extends BaseController
 {
 
     protected $projectService;
     protected $environmentService;
+    private $toastrService;
 
     public function __construct(
         $id, Module $module,
         array $config = [],
         ProjectServiceInterface $projectService,
-        EnvironmentServiceInterface $environmentService
+        EnvironmentServiceInterface $environmentService,
+        ToastrServiceInterface $toastrService
     )
     {
         parent::__construct($id, $module, $config);
         $this->projectService = $projectService;
         $this->environmentService = $environmentService;
+        $this->toastrService = $toastrService;
     }
 
     public function behaviors()
@@ -90,7 +93,7 @@ class ProjectController extends BaseController
             $body = Yii::$app->request->post();
             $model->load($body, 'ProjectForm');
             $this->projectService->create($model->toArray());
-            Toastr::create(I18Next::t('restclient', 'project.messages.created_success'), Toastr::TYPE_SUCCESS);
+            $this->toastrService->success(I18Next::t('restclient', 'project.messages.created_success'));
             return $this->redirect(['/rest-client/project/index']);
         }
         return $this->render('create', [
@@ -101,7 +104,7 @@ class ProjectController extends BaseController
     public function actionDelete($id)
     {
         $this->projectService->deleteById($id);
-        Toastr::create(I18Next::t('restclient', 'project.messages.deleted_success'), Toastr::TYPE_SUCCESS);
+        $this->toastrService->success(I18Next::t('restclient', 'project.messages.deleted_success'));
         return $this->redirect(['/rest-client/project/index']);
     }
 
@@ -112,7 +115,7 @@ class ProjectController extends BaseController
             $body = Yii::$app->request->post();
             $model->load($body, 'ProjectForm');
             $this->projectService->updateById($id, $model->toArray());
-            Toastr::create(I18Next::t('restclient', 'project.messages.updated_success'), Toastr::TYPE_SUCCESS);
+            $this->toastrService->success(I18Next::t('restclient', 'project.messages.updated_success'));
             return $this->redirect(['/rest-client/project/index']);
         } else {
             $projectEntity = $this->projectService->oneById($id);
