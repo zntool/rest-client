@@ -11,7 +11,7 @@ class AccessService extends BaseCrudService implements AccessServiceInterface
 
     public function __construct(AccessRepositoryInterface $repository)
     {
-        $this->repository = $repository;
+        $this->setRepository($repository);
     }
 
     public function attach($projectId, $userId) {
@@ -22,7 +22,7 @@ class AccessService extends BaseCrudService implements AccessServiceInterface
     }
 
     public function detach($projectId, $userId) {
-        $this->repository->deleteByCondition([
+        $this->getRepository()->deleteByCondition([
             'project_id' => $projectId,
             'user_id' => $userId,
         ]);

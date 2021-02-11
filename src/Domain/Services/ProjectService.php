@@ -29,7 +29,7 @@ class ProjectService extends BaseCrudService implements ProjectServiceInterface
         AccessRepositoryInterface $accessRepository
     )
     {
-        $this->repository = $repository;
+        $this->setRepository($repository);
         $this->bookmarkRepository = $bookmarkRepository;
         $this->accessRepository = $accessRepository;
     }
@@ -68,7 +68,7 @@ class ProjectService extends BaseCrudService implements ProjectServiceInterface
 
     public function oneByName(string $projectName): ProjectEntity
     {
-        return $this->repository->oneByName($projectName);
+        return $this->getRepository()->oneByName($projectName);
     }
 
     public function projectNameByHash(string $tag): string

@@ -12,7 +12,7 @@ class EnvironmentService extends BaseCrudService implements EnvironmentServiceIn
 
     public function __construct(EnvironmentRepositoryInterface $repository)
     {
-        $this->repository = $repository;
+        $this->setRepository($repository);
     }
 
     public function allByProjectId(int $projectId, Query $query = null) {

@@ -13,7 +13,7 @@ class AuthorizationService extends BaseCrudService implements AuthorizationServi
 
     public function __construct(AuthorizationRepositoryInterface $repository)
     {
-        $this->repository = $repository;
+        $this->setRepository($repository);
     }
 
     public function allByProjectId(int $projectId, string $type = null): Collection
