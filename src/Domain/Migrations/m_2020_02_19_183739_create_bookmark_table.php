@@ -27,12 +27,15 @@ class m_2020_02_19_183739_create_bookmark_table extends BaseCreateTableMigration
             $table->string('description')->comment('Описание');
             $table->smallInteger('status')->comment('Статус');
             $table->unique(['hash']);
-            $table
+
+            $this->addForeign($table, 'project_id', 'restclient_project');
+
+            /*$table
                 ->foreign('project_id')
                 ->references('id')
                 ->on($this->encodeTableName('restclient_project'))
                 ->onDelete(ForeignActionEnum::CASCADE)
-                ->onUpdate(ForeignActionEnum::CASCADE);
+                ->onUpdate(ForeignActionEnum::CASCADE);*/
         };
     }
 

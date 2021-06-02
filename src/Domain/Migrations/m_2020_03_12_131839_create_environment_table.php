@@ -22,14 +22,18 @@ if ( ! class_exists(m_2020_03_12_131839_create_environment_table::class)) {
                 $table->boolean('is_main')->default(false)->comment('Является ли окружением по умолчанию?');
                 $table->string('title')->comment('Название');
                 $table->string('url')->comment('URL для API');
-                $table
+
+                $table->unique(['project_id', 'url']);
+                $table->unique(['project_id', 'title']);
+
+                $this->addForeign($table, 'project_id', 'restclient_project');
+
+                /*$table
                     ->foreign('project_id')
                     ->references('id')
                     ->on($this->encodeTableName('restclient_project'))
                     ->onDelete(ForeignActionEnum::CASCADE)
-                    ->onUpdate(ForeignActionEnum::CASCADE);
-                $table->unique(['project_id', 'url']);
-                $table->unique(['project_id', 'title']);
+                    ->onUpdate(ForeignActionEnum::CASCADE);*/
             };
         }
     }
