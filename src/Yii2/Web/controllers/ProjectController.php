@@ -2,7 +2,7 @@
 
 namespace ZnTool\RestClient\Yii2\Web\controllers;
 
-use common\enums\rbac\ApplicationPermissionEnum;
+use Packages\Common\Enums\Rbac\ApplicationPermissionEnum;
 use Yii;
 use yii\base\Module;
 use yii\filters\AccessControl;

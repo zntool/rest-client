@@ -2,7 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Services;
 
-use common\enums\rbac\ApplicationPermissionEnum;
+use Packages\Common\Enums\Rbac\ApplicationPermissionEnum;
 use ZnCore\Domain\Entities\Query\Where;
 use ZnCore\Domain\Enums\OperatorEnum;
 use ZnCore\Domain\Helpers\EntityHelper;
