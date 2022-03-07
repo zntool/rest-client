@@ -3,8 +3,8 @@
 namespace Migrations;
 
 use Illuminate\Database\Schema\Blueprint;
-use ZnLib\Migration\Domain\Base\BaseCreateTableMigration;
-use ZnLib\Migration\Domain\Enums\ForeignActionEnum;
+use ZnDatabase\Migration\Domain\Base\BaseCreateTableMigration;
+use ZnDatabase\Migration\Domain\Enums\ForeignActionEnum;
 
 if ( ! class_exists(m_2020_03_12_131839_create_environment_table::class)) {
 
