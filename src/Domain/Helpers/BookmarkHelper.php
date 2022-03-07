@@ -4,7 +4,7 @@ namespace ZnTool\RestClient\Domain\Helpers;
 
 use ZnCrypt\Base\Domain\Enums\HashAlgoEnum;
 use ZnCrypt\Base\Domain\Helpers\SafeBase64Helper;
-use ZnLib\Db\Capsule\Manager;
+use ZnDatabase\Eloquent\Domain\Capsule\Manager;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 use ZnTool\RestClient\Domain\Repositories\Eloquent\BookmarkRepository;
 use ZnTool\RestClient\Domain\Services\BookmarkService;

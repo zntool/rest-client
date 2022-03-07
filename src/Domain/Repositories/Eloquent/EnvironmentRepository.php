@@ -2,7 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Repositories\Eloquent;
 
-use ZnLib\Db\Base\BaseEloquentCrudRepository;
+use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 use ZnTool\RestClient\Domain\Entities\EnvironmentEntity;
 use ZnTool\RestClient\Domain\Interfaces\Repositories\EnvironmentRepositoryInterface;
 

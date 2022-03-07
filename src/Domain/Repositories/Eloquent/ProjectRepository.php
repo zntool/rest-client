@@ -3,7 +3,7 @@
 namespace ZnTool\RestClient\Domain\Repositories\Eloquent;
 
 use ZnCore\Domain\Libs\Query;
-use ZnLib\Db\Base\BaseEloquentCrudRepository;
+use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 use ZnTool\RestClient\Domain\Entities\ProjectEntity;
 use ZnTool\RestClient\Domain\Interfaces\Repositories\ProjectRepositoryInterface;
 
