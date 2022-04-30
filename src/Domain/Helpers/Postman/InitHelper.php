@@ -4,8 +4,6 @@ namespace ZnTool\RestClient\Domain\Helpers\Postman;
 
 use Yii;
 use ZnCore\Base\Enums\Http\HttpMethodEnum;
-use yii2bundle\rest\domain\entities\RequestEntity;
-use yii2bundle\account\domain\v3\entities\TestEntity;
 
 class InitHelper {
 

@@ -4,7 +4,6 @@ namespace ZnTool\RestClient\Yii2\Web\controllers;
 
 use Yii;
 use yii\base\Module;
-use yii2bundle\rest\domain\helpers\MiscHelper;
 use ZnBundle\Notify\Domain\Interfaces\Services\ToastrServiceInterface;
 use ZnLib\Rest\Yii2\Helpers\Behavior;
 use ZnTool\RestClient\Domain\Helpers\Postman\PostmanHelper;

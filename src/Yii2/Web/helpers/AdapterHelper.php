@@ -5,7 +5,6 @@ namespace ZnTool\RestClient\Yii2\Web\helpers;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 use yii\base\Model;
-use yii2bundle\rest\domain\entities\RequestEntity;
 use ZnTool\RestClient\Yii2\Web\models\RequestForm;
 use GuzzleHttp\Psr7\Response;
 

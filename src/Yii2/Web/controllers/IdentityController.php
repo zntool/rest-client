@@ -16,8 +16,6 @@ use ZnTool\RestClient\Domain\Interfaces\Services\AccessServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use ZnTool\RestClient\Yii2\Web\models\IdentityForm;
 
-//use yii2rails\domain\exceptions\UnprocessableEntityHttpException;
-
 class IdentityController extends BaseController
 {
 
