@@ -27,13 +27,6 @@ if ( ! class_exists(m_2020_03_12_131839_create_environment_table::class)) {
                 $table->unique(['project_id', 'title']);
 
                 $this->addForeign($table, 'project_id', 'restclient_project');
-
-                /*$table
-                    ->foreign('project_id')
-                    ->references('id')
-                    ->on($this->encodeTableName('restclient_project'))
-                    ->onDelete(ForeignActionEnum::CASCADE)
-                    ->onUpdate(ForeignActionEnum::CASCADE);*/
             };
         }
     }
