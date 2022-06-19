@@ -2,7 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Helpers\Postman;
 
-use ZnCore\Base\Helpers\StringHelper;
+use ZnCore\Base\Libs\Text\Helpers\StringHelper;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 use ZnCore\Base\Enums\Http\HttpMethodEnum;
 
