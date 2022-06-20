@@ -4,9 +4,9 @@ namespace ZnTool\RestClient\Domain\Entities;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
-use ZnCore\Base\Libs\Entity\Interfaces\ValidateEntityByMetadataInterface;
+use ZnCore\Base\Libs\Validation\Interfaces\ValidationByMetadataInterface;
 
-class QwerEntity implements ValidateEntityByMetadataInterface
+class QwerEntity implements ValidationByMetadataInterface
 {
 
     private $title = null;

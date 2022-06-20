@@ -16,8 +16,8 @@ use ZnTool\RestClient\Yii2\Web\helpers\Authorization;
 //$baseUrl = $projectEntity->getUrl() . '/';
 $model->addEmptyRows();
 
-$urlArray = \ZnCore\Domain\Helpers\EntityHelper::getColumn($environmentCollection, 'url');
-$titleArray = \ZnCore\Domain\Helpers\EntityHelper::getColumn($environmentCollection, 'title');
+$urlArray = \ZnCore\Base\Libs\Entity\Helpers\EntityHelper::getColumn($environmentCollection, 'url');
+$titleArray = \ZnCore\Base\Libs\Entity\Helpers\EntityHelper::getColumn($environmentCollection, 'title');
 //$urlOptoins = array_combine($urlArray, $urlArray);
 $urlOptoins = array_combine($urlArray, $titleArray);
 
