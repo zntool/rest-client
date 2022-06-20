@@ -2,8 +2,9 @@
 
 namespace ZnTool\RestClient\Yii2\Api\controllers;
 
-use ZnCore\Domain\Helpers\QueryHelper;
+use ZnCore\Base\Libs\Query\Helpers\QueryHelper;
 use ZnCore\Base\Exceptions\NotFoundException;
+use ZnLib\Web\Helpers\WebQueryHelper;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
 use ZnTool\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
 use yii\base\Module;
@@ -84,7 +85,7 @@ class BaseBookmarkController extends BaseCrudController
     {
         $queryParams = \Yii::$app->request->get();
         unset($queryParams['id']);
-        $query = QueryHelper::getAllParams($queryParams);
+        $query = WebQueryHelper::getAllParams($queryParams);
         try {
             $entity = $this->service->oneByHash($id, $query);
             return $entity;

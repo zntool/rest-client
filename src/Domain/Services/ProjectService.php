@@ -3,10 +3,10 @@
 namespace ZnTool\RestClient\Domain\Services;
 
 use Packages\Common\Enums\Rbac\ApplicationPermissionEnum;
-use ZnCore\Domain\Entities\Query\Where;
-use ZnCore\Domain\Enums\OperatorEnum;
+use ZnCore\Base\Libs\Query\Entities\Where;
+use ZnCore\Base\Libs\Query\Enums\OperatorEnum;
 use ZnCore\Base\Libs\Entity\Helpers\EntityHelper;
-use ZnCore\Domain\Libs\Query;
+use ZnCore\Base\Libs\Query\Entities\Query;
 use ZnCore\Base\Exceptions\NotFoundException;
 use ZnTool\RestClient\Domain\Entities\ProjectEntity;
 use ZnTool\RestClient\Domain\Interfaces\Repositories\AccessRepositoryInterface;
