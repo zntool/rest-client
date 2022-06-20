@@ -3,6 +3,7 @@
 namespace ZnTool\RestClient\Domain\Services;
 
 use Packages\Common\Enums\Rbac\ApplicationPermissionEnum;
+use ZnCore\Base\Libs\Entity\Helpers\CollectionHelper;
 use ZnCore\Base\Libs\Query\Entities\Where;
 use ZnCore\Base\Libs\Query\Enums\OperatorEnum;
 use ZnCore\Base\Libs\Entity\Helpers\EntityHelper;
@@ -37,7 +38,7 @@ class ProjectService extends BaseCrudService implements ProjectServiceInterface
     public function allWithoutUserId(int $userId)
     {
         $accessCollection = $this->accessRepository->allByUserId($userId);
-        $projectIds = EntityHelper::getColumn($accessCollection, 'project_id');
+        $projectIds = CollectionHelper::getColumn($accessCollection, 'project_id');
         $query = new Query;
         $where = new Where('id', $projectIds, OperatorEnum::EQUAL, 'and', true);
         $query->whereNew($where);
@@ -47,7 +48,7 @@ class ProjectService extends BaseCrudService implements ProjectServiceInterface
     public function allByUserId(int $userId)
     {
         $accessCollection = $this->accessRepository->allByUserId($userId);
-        $projectIds = EntityHelper::getColumn($accessCollection, 'project_id');
+        $projectIds = CollectionHelper::getColumn($accessCollection, 'project_id');
         $query = new Query;
         $query->where('id', $projectIds);
         return $this->all($query);

@@ -2,6 +2,7 @@
 
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
+use ZnCore\Base\Libs\Entity\Helpers\CollectionHelper;
 use ZnTool\RestClient\Yii2\Web\models\RequestForm;
 use ZnTool\RestClient\Yii2\Web\helpers\Authorization;
 
@@ -16,8 +17,8 @@ use ZnTool\RestClient\Yii2\Web\helpers\Authorization;
 //$baseUrl = $projectEntity->getUrl() . '/';
 $model->addEmptyRows();
 
-$urlArray = \ZnCore\Base\Libs\Entity\Helpers\EntityHelper::getColumn($environmentCollection, 'url');
-$titleArray = \ZnCore\Base\Libs\Entity\Helpers\EntityHelper::getColumn($environmentCollection, 'title');
+$urlArray = CollectionHelper::getColumn($environmentCollection, 'url');
+$titleArray = CollectionHelper::getColumn($environmentCollection, 'title');
 //$urlOptoins = array_combine($urlArray, $urlArray);
 $urlOptoins = array_combine($urlArray, $titleArray);
 
