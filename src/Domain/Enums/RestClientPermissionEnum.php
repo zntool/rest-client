@@ -2,7 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Enums;
 
-use ZnCore\Contract\Enum\Interfaces\GetLabelsInterface;
+use ZnCore\Base\Libs\Enum\Interfaces\GetLabelsInterface;
 
 class RestClientPermissionEnum implements GetLabelsInterface
 {

@@ -9,7 +9,7 @@ use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 use ZnTool\RestClient\Domain\Enums\StatusEnum;
 use ZnTool\RestClient\Domain\Interfaces\Repositories\BookmarkRepositoryInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
-use ZnCore\Domain\Base\BaseCrudService;
+use ZnCore\Base\Libs\Service\Base\BaseCrudService;
 
 class BookmarkService extends BaseCrudService implements BookmarkServiceInterface
 {

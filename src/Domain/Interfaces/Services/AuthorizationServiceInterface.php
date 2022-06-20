@@ -3,7 +3,7 @@
 namespace ZnTool\RestClient\Domain\Interfaces\Services;
 
 use Illuminate\Support\Collection;
-use ZnCore\Domain\Interfaces\Service\CrudServiceInterface;
+use ZnCore\Base\Libs\Service\Interfaces\CrudServiceInterface;
 use ZnCore\Base\Exceptions\NotFoundException;
 use ZnTool\RestClient\Domain\Entities\AuthorizationEntity;
 

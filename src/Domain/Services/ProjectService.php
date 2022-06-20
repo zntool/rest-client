@@ -13,7 +13,7 @@ use ZnTool\RestClient\Domain\Interfaces\Repositories\AccessRepositoryInterface;
 use ZnTool\RestClient\Domain\Interfaces\Repositories\BookmarkRepositoryInterface;
 use ZnTool\RestClient\Domain\Interfaces\Repositories\ProjectRepositoryInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
-use ZnCore\Domain\Base\BaseCrudService;
+use ZnCore\Base\Libs\Service\Base\BaseCrudService;
 use Yii;
 use yii\web\NotFoundHttpException;
 

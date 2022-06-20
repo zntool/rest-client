@@ -3,7 +3,7 @@
 namespace ZnTool\RestClient\Domain\Services;
 
 use Illuminate\Support\Collection;
-use ZnCore\Domain\Base\BaseCrudService;
+use ZnCore\Base\Libs\Service\Base\BaseCrudService;
 use ZnTool\RestClient\Domain\Entities\AuthorizationEntity;
 use ZnTool\RestClient\Domain\Interfaces\Repositories\AuthorizationRepositoryInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\AuthorizationServiceInterface;
