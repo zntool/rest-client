@@ -4,7 +4,7 @@ namespace ZnTool\RestClient\Domain\Entities;
 
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnCore\Contract\Domain\Interfaces\Entities\EntityIdInterface;
-use ZnCore\Domain\Interfaces\Entity\ValidateEntityByMetadataInterface;
+use ZnCore\Base\Libs\Entity\Interfaces\ValidateEntityByMetadataInterface;
 use ZnCore\Base\Enums\StatusEnum;
 use Symfony\Component\Validator\Constraints as Assert;
 
