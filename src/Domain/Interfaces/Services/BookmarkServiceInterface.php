@@ -4,7 +4,7 @@ namespace ZnTool\RestClient\Domain\Interfaces\Services;
 
 use Illuminate\Support\Collection;
 use ZnCore\Base\Libs\Validation\Exceptions\UnprocessibleEntityException;
-use ZnCore\Base\Libs\Service\Interfaces\CrudServiceInterface;
+use ZnCore\Domain\Service\Interfaces\CrudServiceInterface;
 use ZnCore\Base\Exceptions\NotFoundException;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 

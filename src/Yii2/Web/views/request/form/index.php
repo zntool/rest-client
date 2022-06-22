@@ -2,7 +2,7 @@
 
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
-use ZnCore\Base\Libs\Entity\Helpers\CollectionHelper;
+use ZnCore\Domain\Entity\Helpers\CollectionHelper;
 use ZnTool\RestClient\Yii2\Web\models\RequestForm;
 use ZnTool\RestClient\Yii2\Web\helpers\Authorization;
 
