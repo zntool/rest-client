@@ -4,7 +4,7 @@ namespace ZnTool\RestClient\Yii2\Web\helpers;
 
 use Illuminate\Support\Collection;
 use ZnTool\RestClient\Domain\Entities\AuthorizationEntity;
-use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
+use ZnCore\Base\Libs\Arr\Helpers\ArrayHelper;
 
 class Authorization
 {

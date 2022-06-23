@@ -5,7 +5,7 @@ namespace ZnTool\RestClient\Domain\Helpers\Postman;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 use yii\helpers\Json;
 use yii\web\ServerErrorHttpException;
-use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
+use ZnCore\Base\Libs\Arr\Helpers\ArrayHelper;
 
 class PostmanHelper {
 	
