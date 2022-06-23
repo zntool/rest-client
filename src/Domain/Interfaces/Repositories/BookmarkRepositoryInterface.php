@@ -4,7 +4,7 @@ namespace ZnTool\RestClient\Domain\Interfaces\Repositories;
 
 use Illuminate\Support\Collection;
 use ZnCore\Domain\Repository\Interfaces\CrudRepositoryInterface;
-use ZnCore\Base\Exceptions\NotFoundException;
+use ZnCore\Domain\Entity\Exceptions\NotFoundException;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 
 interface BookmarkRepositoryInterface extends CrudRepositoryInterface

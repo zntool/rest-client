@@ -3,7 +3,7 @@
 namespace ZnTool\RestClient\Domain\Helpers\Postman;
 
 use Symfony\Component\Uid\Uuid;
-use ZnCore\Base\Enums\Http\HttpMethodEnum;
+use ZnCore\Base\Libs\Http\Enums\HttpMethodEnum;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 
 class GeneratorHelper

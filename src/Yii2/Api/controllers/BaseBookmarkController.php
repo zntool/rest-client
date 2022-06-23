@@ -3,7 +3,7 @@
 namespace ZnTool\RestClient\Yii2\Api\controllers;
 
 use ZnCore\Domain\Query\Helpers\QueryHelper;
-use ZnCore\Base\Exceptions\NotFoundException;
+use ZnCore\Domain\Entity\Exceptions\NotFoundException;
 use ZnLib\Web\Helpers\WebQueryHelper;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
 use ZnTool\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;

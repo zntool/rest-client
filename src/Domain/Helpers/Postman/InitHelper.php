@@ -3,7 +3,7 @@
 namespace ZnTool\RestClient\Domain\Helpers\Postman;
 
 use Yii;
-use ZnCore\Base\Enums\Http\HttpMethodEnum;
+use ZnCore\Base\Libs\Http\Enums\HttpMethodEnum;
 
 class InitHelper {
 

@@ -4,7 +4,7 @@ namespace ZnTool\RestClient\Domain\Services;
 
 use Illuminate\Support\Collection;
 use ZnCore\Domain\Entity\Helpers\EntityHelper;
-use ZnCore\Base\Exceptions\NotFoundException;
+use ZnCore\Domain\Entity\Exceptions\NotFoundException;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 use ZnTool\RestClient\Domain\Enums\StatusEnum;
 use ZnTool\RestClient\Domain\Interfaces\Repositories\BookmarkRepositoryInterface;

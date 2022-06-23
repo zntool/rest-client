@@ -2,7 +2,7 @@
 
 namespace ZnTool\RestClient\Yii2\Web\Widgets;
 
-use ZnCore\Base\Enums\Http\HttpHeaderEnum;
+use ZnCore\Base\Libs\Http\Enums\HttpHeaderEnum;
 use ZnTool\RestClient\Yii2\Web\formatters\RawFormatter;
 use ZnTool\RestClient\Yii2\Web\HighlightAsset;
 use ZnTool\Test\Helpers\RestHelper;
