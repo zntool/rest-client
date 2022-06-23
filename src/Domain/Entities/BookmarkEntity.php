@@ -3,10 +3,10 @@
 namespace ZnTool\RestClient\Domain\Entities;
 
 use Symfony\Component\Validator\Mapping\ClassMetadata;
-use ZnCore\Base\Libs\Enum\Helpers\EnumHelper;
+use ZnCore\Base\Enum\Helpers\EnumHelper;
 use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
-use ZnCore\Base\Libs\Validation\Interfaces\ValidationByMetadataInterface;
-use ZnCore\Base\Libs\Http\Enums\HttpMethodEnum;
+use ZnCore\Base\Validation\Interfaces\ValidationByMetadataInterface;
+use ZnCore\Base\Http\Enums\HttpMethodEnum;
 use ZnTool\RestClient\Domain\Helpers\BookmarkHelper;
 use Symfony\Component\Validator\Constraints as Assert;
 

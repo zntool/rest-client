@@ -4,7 +4,7 @@ namespace ZnTool\RestClient\Yii2\Web\helpers;
 
 use Illuminate\Support\Collection;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
-use ZnCore\Base\Libs\Arr\Helpers\ArrayHelper;
+use ZnCore\Base\Arr\Helpers\ArrayHelper;
 
 class CollectionHelper
 {

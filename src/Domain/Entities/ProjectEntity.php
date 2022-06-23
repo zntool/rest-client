@@ -4,8 +4,8 @@ namespace ZnTool\RestClient\Domain\Entities;
 
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
-use ZnCore\Base\Libs\Validation\Interfaces\ValidationByMetadataInterface;
-use ZnCore\Base\Libs\Status\Enums\StatusEnum;
+use ZnCore\Base\Validation\Interfaces\ValidationByMetadataInterface;
+use ZnCore\Base\Status\Enums\StatusEnum;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class ProjectEntity implements EntityIdInterface, ValidationByMetadataInterface

@@ -4,9 +4,9 @@ namespace ZnTool\RestClient\Yii2\Web\controllers;
 
 use yii\filters\AccessControl;
 use ZnLib\Rest\Yii2\Helpers\Behavior;
-use ZnCore\Base\Libs\Http\Enums\HttpHeaderEnum;
+use ZnCore\Base\Http\Enums\HttpHeaderEnum;
 use ZnYii\Base\Helpers\UploadHelper;
-use ZnCore\Base\Libs\I18Next\Interfaces\Services\TranslationServiceInterface;
+use ZnCore\Base\I18Next\Interfaces\Services\TranslationServiceInterface;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
 use ZnTool\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
