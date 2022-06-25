@@ -4,7 +4,7 @@ namespace ZnTool\RestClient\Domain\Helpers\Postman;
 
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 use Yii;
-use ZnCore\Base\Http\Enums\HttpMethodEnum;
+use ZnLib\Components\Http\Enums\HttpMethodEnum;
 
 class AuthorizationHelper {
 	
