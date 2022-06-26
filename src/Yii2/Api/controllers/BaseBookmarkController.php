@@ -4,7 +4,7 @@ namespace ZnTool\RestClient\Yii2\Api\controllers;
 
 use ZnCore\Domain\Query\Helpers\QueryHelper;
 use ZnCore\Domain\Entity\Exceptions\NotFoundException;
-use ZnLib\Web\Components\Controller\Helpers\WebQueryHelper;
+use ZnLib\Web\Controller\Helpers\WebQueryHelper;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
 use ZnTool\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;
 use yii\base\Module;
