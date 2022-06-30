@@ -81,7 +81,7 @@ class ProjectService extends BaseCrudService implements ProjectServiceInterface
         }
 
         try {
-            $projectEntity = $this->oneById($bookmarkEntity->getProjectId());
+            $projectEntity = $this->findOneById($bookmarkEntity->getProjectId());
         } catch (NotFoundException $e) {
             throw new NotFoundHttpException('Project not found!');
         }
