@@ -18,6 +18,6 @@ class EnvironmentService extends BaseCrudService implements EnvironmentServiceIn
     public function allByProjectId(int $projectId, Query $query = null) {
         $query = Query::forge($query);
         $query->where('project_id', $projectId);
-        return $this->all($query);
+        return $this->findAll($query);
     }
 }

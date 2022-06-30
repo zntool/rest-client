@@ -37,7 +37,7 @@ class BookmarkRepository extends BaseEloquentCrudRepository implements BookmarkR
         $query = new Query;
         $query->where('status', StatusEnum::FAVORITE);
         $query->where('project_id', $projectId);
-        return $this->all($query);
+        return $this->findAll($query);
     }
 
     public function allHistoryByProject(int $projectId): Collection
@@ -45,7 +45,7 @@ class BookmarkRepository extends BaseEloquentCrudRepository implements BookmarkR
         $query = new Query;
         $query->where('status', StatusEnum::HISTORY);
         $query->where('project_id', $projectId);
-        return $this->all($query);
+        return $this->findAll($query);
     }
 
     public function clearHistory(int $projectId): void

@@ -42,7 +42,7 @@ class ProjectService extends BaseCrudService implements ProjectServiceInterface
         $query = new Query;
         $where = new Where('id', $projectIds, OperatorEnum::EQUAL, 'and', true);
         $query->whereNew($where);
-        return $this->all($query);
+        return $this->findAll($query);
     }
 
     public function allByUserId(int $userId)
@@ -51,7 +51,7 @@ class ProjectService extends BaseCrudService implements ProjectServiceInterface
         $projectIds = CollectionHelper::getColumn($accessCollection, 'project_id');
         $query = new Query;
         $query->where('id', $projectIds);
-        return $this->all($query);
+        return $this->findAll($query);
     }
 
     public function isAllowProject(int $projectId, int $userId)

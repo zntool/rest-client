@@ -30,7 +30,7 @@ class AccessRepository extends BaseEloquentCrudRepository implements AccessRepos
     {
         $query = new Query;
         $query->where('user_id', $userId);
-        return $this->all($query);
+        return $this->findAll($query);
     }
 
 }
