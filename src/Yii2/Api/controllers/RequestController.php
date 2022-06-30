@@ -60,7 +60,7 @@ class RequestController extends BaseController
         AdapterHelper::compactValues($form, 'header', ArrayHelper::getValue($body, 'header', []));
 
         /** @var ProjectEntity $projectEntity */
-        $projectEntity = $this->projectService->oneById($projectId);
+        $projectEntity = $this->projectService->findOneById($projectId);
 
         $responseEntity = $this->transportService->send($projectEntity, $form);
 

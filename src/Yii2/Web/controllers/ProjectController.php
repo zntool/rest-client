@@ -67,7 +67,7 @@ class ProjectController extends BaseController
     public function actionIndex()
     {
         if (Yii::$app->user->can(ApplicationPermissionEnum::BACKEND_ALL)) {
-            $projectCollection = $this->projectService->all();
+            $projectCollection = $this->projectService->findAll();
         } else {
             $projectCollection = $this->projectService->allByUserId(Yii::$app->user->identity->id);
         }
@@ -78,7 +78,7 @@ class ProjectController extends BaseController
 
     public function actionView($id)
     {
-        $projectEntity = $this->projectService->oneById($id);
+        $projectEntity = $this->projectService->findOneById($id);
         $environmentCollection = $this->environmentService->allByProjectId($id);
         return $this->render('view', [
             'projectEntity' => $projectEntity,
@@ -118,7 +118,7 @@ class ProjectController extends BaseController
             $this->toastrService->success(I18Next::t('restclient', 'project.messages.updated_success'));
             return $this->redirect(['/rest-client/project/index']);
         } else {
-            $projectEntity = $this->projectService->oneById($id);
+            $projectEntity = $this->projectService->findOneById($id);
             $model->load(EntityHelper::toArray($projectEntity), '');
         }
         return $this->render('update', [

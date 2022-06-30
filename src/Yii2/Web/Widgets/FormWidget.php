@@ -32,7 +32,7 @@ class FormWidget extends Widget
 
     public function run()
     {
-        $projectEntity = $this->projectService->oneById($this->projectId);
+        $projectEntity = $this->projectService->findOneById($this->projectId);
         return $this->renderFile(__DIR__ . '/../views/request/form/index.php', [
             'model' => $this->model,
             'projectEntity' => $projectEntity,

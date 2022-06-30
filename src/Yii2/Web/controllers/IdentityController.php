@@ -70,7 +70,7 @@ class IdentityController extends BaseController
 
     public function actionIndex()
     {
-        $identityCollection = $this->identityService->all();
+        $identityCollection = $this->identityService->findAll();
         return $this->render('index', [
             'identityCollection' => $identityCollection,
         ]);
@@ -105,7 +105,7 @@ class IdentityController extends BaseController
             $this->toastrService->success(I18Next::t('restclient', 'identity.messages.updated_success'));
             return $this->redirect(['/rest-client/identity/index']);
         } else {
-            $entity = $this->identityService->oneById($id);
+            $entity = $this->identityService->findOneById($id);
             $model->load(EntityHelper::toArray($entity), '');
         }
         return $this->render('update', [
@@ -122,7 +122,7 @@ class IdentityController extends BaseController
 
     public function actionView($id)
     {
-        $identityEntity = $this->identityService->oneById($id);
+        $identityEntity = $this->identityService->findOneById($id);
         $projectCollection = $this->projectService->allWithoutUserId($id);
         $hasProjectCollection = $this->projectService->allByUserId($id);
         return $this->render('view', [

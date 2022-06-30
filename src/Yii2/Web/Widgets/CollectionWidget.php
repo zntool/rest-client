@@ -28,7 +28,7 @@ class CollectionWidget extends Widget
 
     public function run()
     {
-        $projectEntity = $this->projectService->oneById($this->projectId);
+        $projectEntity = $this->projectService->findOneById($this->projectId);
         $collection = $this->bookmarkService->allFavoriteByProject($this->projectId);
         $history = $this->bookmarkService->allHistoryByProject($this->projectId);
         return $this->renderFile(__DIR__ . '/../views/request/collection/index.php', [

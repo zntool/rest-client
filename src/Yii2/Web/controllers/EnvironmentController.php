@@ -67,7 +67,7 @@ class EnvironmentController extends BaseController
 
     public function actionCreate(int $projectId)
     {
-        $projectEntity = $this->projectService->oneById($projectId);
+        $projectEntity = $this->projectService->findOneById($projectId);
         $model = new EnvironmentForm;
         $model->project_id = $projectId;
         if (Yii::$app->request->isPost) {
@@ -88,7 +88,7 @@ class EnvironmentController extends BaseController
 
     public function actionUpdate($id)
     {
-        $environmentEntity = $this->environmentService->oneById($id);
+        $environmentEntity = $this->environmentService->findOneById($id);
         $model = new EnvironmentForm;
         $model->project_id = $environmentEntity->getProjectId();
         if (Yii::$app->request->isPost) {
@@ -102,7 +102,7 @@ class EnvironmentController extends BaseController
                 ErrorHelper::handleError($e, $model);
             }
         } else {
-            $entity = $this->environmentService->oneById($id);
+            $entity = $this->environmentService->findOneById($id);
             $model->load(EntityHelper::toArray($entity), '');
         }
         return $this->render('update', [
@@ -112,7 +112,7 @@ class EnvironmentController extends BaseController
 
     public function actionDelete($id)
     {
-        $environmentEntity = $this->environmentService->oneById($id);
+        $environmentEntity = $this->environmentService->findOneById($id);
         $this->environmentService->deleteById($id);
         $this->toastrService->success(I18Next::t('restclient', 'environment.messages.deleted_success'));
         return $this->redirect(['/rest-client/project/view', 'id' => $environmentEntity->getProjectId()]);
@@ -120,7 +120,7 @@ class EnvironmentController extends BaseController
 
     /*public function actionView($id)
     {
-        $environmentEntity = $this->environmentService->oneById($id);
+        $environmentEntity = $this->environmentService->findOneById($id);
         return $this->render('view', [
             'environmentEntity' => $environmentEntity,
         ]);
