@@ -16,7 +16,7 @@ interface AccessRepositoryInterface extends CrudRepositoryInterface
      * @return AccessEntity
      * @throws NotFoundException
      */
-    public function oneByTie(int $projectId, int $userId): AccessEntity;
+    public function findOneByTie(int $projectId, int $userId): AccessEntity;
 
     public function allByUserId(int $userId): Collection;
 

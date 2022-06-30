@@ -60,16 +60,16 @@ class ProjectService extends BaseCrudService implements ProjectServiceInterface
             return true;
         }
         try {
-            $this->accessRepository->oneByTie($projectId, $userId);
+            $this->accessRepository->findOneByTie($projectId, $userId);
             return true;
         } catch (NotFoundException $e) {
             return false;
         }
     }
 
-    public function oneByName(string $projectName): ProjectEntity
+    public function findOneByName(string $projectName): ProjectEntity
     {
-        return $this->getRepository()->oneByName($projectName);
+        return $this->getRepository()->findOneByName($projectName);
     }
 
     public function projectNameByHash(string $tag): string

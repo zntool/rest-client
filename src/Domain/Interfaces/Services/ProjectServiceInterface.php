@@ -20,7 +20,7 @@ interface ProjectServiceInterface extends CrudServiceInterface
      * @return ProjectEntity
      * @throws NotFoundException
      */
-    public function oneByName(string $projectName): ProjectEntity;
+    public function findOneByName(string $projectName): ProjectEntity;
 
     /**
      * @param string $tag

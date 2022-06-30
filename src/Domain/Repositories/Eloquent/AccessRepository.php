@@ -18,7 +18,7 @@ class AccessRepository extends BaseEloquentCrudRepository implements AccessRepos
         return AccessEntity::class;
     }
 
-    public function oneByTie(int $projectId, int $userId): AccessEntity
+    public function findOneByTie(int $projectId, int $userId): AccessEntity
     {
         $query = new Query;
         $query->where('project_id', $projectId);

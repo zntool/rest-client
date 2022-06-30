@@ -17,7 +17,7 @@ class ProjectRepository extends BaseEloquentCrudRepository implements ProjectRep
         return ProjectEntity::class;
     }
 
-    public function oneByName(string $projectName): ProjectEntity
+    public function findOneByName(string $projectName): ProjectEntity
     {
         $query = new Query;
         $query->where('name', $projectName);

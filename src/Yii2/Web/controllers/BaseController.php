@@ -24,7 +24,7 @@ abstract class BaseController extends Controller
     protected function getProjectByName(string $projectName): ProjectEntity
     {
         try {
-            $projectEntity = $this->projectService->oneByName($projectName);
+            $projectEntity = $this->projectService->findOneByName($projectName);
             $userId = Yii::$app->user->identity->getId();
             $isAllow = $this->projectService->isAllowProject($projectEntity->getId(), $userId);
             if ( ! $isAllow) {

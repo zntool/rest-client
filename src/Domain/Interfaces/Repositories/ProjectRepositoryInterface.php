@@ -14,6 +14,6 @@ interface ProjectRepositoryInterface extends CrudRepositoryInterface
      * @return ProjectEntity
      * @throws NotFoundException
      */
-    public function oneByName(string $projectName): ProjectEntity;
+    public function findOneByName(string $projectName): ProjectEntity;
 
 }
