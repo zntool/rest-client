@@ -28,7 +28,7 @@ class AuthorizationRepository extends BaseEloquentCrudRepository implements Auth
         return $this->findAll($query);
     }
 
-    public function oneByUsername(int $projectId, string $username, string $type = null): AuthorizationEntity
+    public function findOneByUsername(int $projectId, string $username, string $type = null): AuthorizationEntity
     {
         $query = new Query;
         $query->where('project_id', $projectId);

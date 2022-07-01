@@ -21,11 +21,11 @@ class BookmarkRepository extends BaseEloquentCrudRepository implements BookmarkR
 
     public function removeByHash(string $hash): void
     {
-        $bookmarkEntity = $this->oneByHash($hash);
+        $bookmarkEntity = $this->findOneByHash($hash);
         $this->deleteById($bookmarkEntity->getId());
     }
 
-    public function oneByHash(string $hash): BookmarkEntity
+    public function findOneByHash(string $hash): BookmarkEntity
     {
         $query = new Query;
         $query->where('hash', $hash);

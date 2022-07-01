@@ -17,7 +17,7 @@ interface BookmarkRepositoryInterface extends CrudRepositoryInterface
      * @return BookmarkEntity
      * @throws NotFoundException
      */
-    public function oneByHash(string $hash): BookmarkEntity;
+    public function findOneByHash(string $hash): BookmarkEntity;
 
     public function allFavoriteByProject(int $projectId): Collection;
 

@@ -37,7 +37,7 @@ interface BookmarkServiceInterface extends CrudServiceInterface
      * @return BookmarkEntity
      * @throws NotFoundException
      */
-    public function oneByHash(string $hash): BookmarkEntity;
+    public function findOneByHash(string $hash): BookmarkEntity;
 
     /**
      * @param int $projectId

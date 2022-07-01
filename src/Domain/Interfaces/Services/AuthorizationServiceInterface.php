@@ -24,6 +24,6 @@ interface AuthorizationServiceInterface extends CrudServiceInterface
      * @return AuthorizationEntity
      * @throws NotFoundException
      */
-    public function oneByUsername(int $projectId, string $username, string $type = null): AuthorizationEntity;
+    public function findOneByUsername(int $projectId, string $username, string $type = null): AuthorizationEntity;
 
 }

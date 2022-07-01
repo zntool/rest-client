@@ -21,9 +21,9 @@ class AuthorizationService extends BaseCrudService implements AuthorizationServi
         return $this->getRepository()->allByProjectId($projectId, $type);
     }
 
-    public function oneByUsername(int $projectId, string $username, string $type = null): AuthorizationEntity
+    public function findOneByUsername(int $projectId, string $username, string $type = null): AuthorizationEntity
     {
-        return $this->getRepository()->oneByUsername($projectId, $username, $type);
+        return $this->getRepository()->findOneByUsername($projectId, $username, $type);
     }
 
 }

@@ -87,7 +87,7 @@ class BaseBookmarkController extends BaseCrudController
         unset($queryParams['id']);
         $query = WebQueryHelper::getAllParams($queryParams);
         try {
-            $entity = $this->service->oneByHash($id, $query);
+            $entity = $this->service->findOneByHash($id, $query);
             return $entity;
         } catch (NotFoundException $e) {
             throw new NotFoundHttpException();

@@ -36,7 +36,7 @@ class TransportService extends BaseService implements TransportServiceInterface
         $restClient = new RestClient($guzzleClient, $authAgent);
         if ($model->authorization) {
             try {
-                $authEntity = $this->authorizationService->oneByUsername($projectEntity->getId(), $model->authorization, 'bearer');
+                $authEntity = $this->authorizationService->findOneByUsername($projectEntity->getId(), $model->authorization, 'bearer');
                 $restClient->getAuthAgent()->authByLogin($authEntity->getUsername(), $authEntity->getPassword());
             } catch (NotFoundException $e) {
             }

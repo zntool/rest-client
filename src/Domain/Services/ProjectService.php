@@ -75,7 +75,7 @@ class ProjectService extends BaseCrudService implements ProjectServiceInterface
     public function projectNameByHash(string $tag): string
     {
         try {
-            $bookmarkEntity = $this->bookmarkRepository->oneByHash($tag);
+            $bookmarkEntity = $this->bookmarkRepository->findOneByHash($tag);
         } catch (NotFoundException $e) {
             throw new NotFoundHttpException('Project not found!');
         }

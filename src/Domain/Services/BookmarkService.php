@@ -22,7 +22,7 @@ class BookmarkService extends BaseCrudService implements BookmarkServiceInterfac
     public function persist(object $bookmarkEntity) {
         $bookmarkEntity->setId(null);
         try {
-            $bookmarkEntity = $this->getRepository()->oneByHash($bookmarkEntity->getHash());
+            $bookmarkEntity = $this->getRepository()->findOneByHash($bookmarkEntity->getHash());
             $this->getRepository()->update($bookmarkEntity);
         } catch (NotFoundException $e) {
             $bookmarkEntity->setStatus(StatusEnum::HISTORY);
@@ -36,7 +36,7 @@ class BookmarkService extends BaseCrudService implements BookmarkServiceInterfac
         unset($data['id']);
         EntityHelper::setAttributes($bookmarkEntity, $data);
         try {
-            $bookmarkEntity = $this->getRepository()->oneByHash($bookmarkEntity->getHash());
+            $bookmarkEntity = $this->getRepository()->findOneByHash($bookmarkEntity->getHash());
             $this->getRepository()->update($bookmarkEntity);
         } catch (NotFoundException $e) {
             $bookmarkEntity->setStatus(StatusEnum::HISTORY);
@@ -46,7 +46,7 @@ class BookmarkService extends BaseCrudService implements BookmarkServiceInterfac
     }
 
     public function addToCollection(string $hash): BookmarkEntity {
-        $bookmarkEntity = $this->getRepository()->oneByHash($hash);
+        $bookmarkEntity = $this->getRepository()->findOneByHash($hash);
         $bookmarkEntity->setStatus(StatusEnum::FAVORITE);
         $this->getRepository()->update($bookmarkEntity);
         return $bookmarkEntity;
@@ -56,8 +56,8 @@ class BookmarkService extends BaseCrudService implements BookmarkServiceInterfac
         $this->getRepository()->removeByHash($hash);
     }
 
-    public function oneByHash(string $hash): BookmarkEntity {
-        return $this->getRepository()->oneByHash($hash);
+    public function findOneByHash(string $hash): BookmarkEntity {
+        return $this->getRepository()->findOneByHash($hash);
     }
 
     public function allFavoriteByProject(int $projectId): Collection {

@@ -79,7 +79,7 @@ class RequestController extends BaseController
         $duration = null;
         if ($tag !== null) {
             /** @var BookmarkEntity $bookmarkEntity */
-            $bookmarkEntity = $this->bookmarkService->oneByHash($tag);
+            $bookmarkEntity = $this->bookmarkService->findOneByHash($tag);
             $model = AdapterHelper::bookmarkEntityToForm($bookmarkEntity);
         } elseif (Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->post(), 'RequestForm');
