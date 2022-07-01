@@ -29,7 +29,7 @@ class BookmarkRepository extends BaseEloquentCrudRepository implements BookmarkR
     {
         $query = new Query;
         $query->where('hash', $hash);
-        return $this->one($query);
+        return $this->findOne($query);
     }
 
     public function allFavoriteByProject(int $projectId): Collection

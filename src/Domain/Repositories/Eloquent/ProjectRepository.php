@@ -21,7 +21,7 @@ class ProjectRepository extends BaseEloquentCrudRepository implements ProjectRep
     {
         $query = new Query;
         $query->where('name', $projectName);
-        return $this->one($query);
+        return $this->findOne($query);
     }
 }
 

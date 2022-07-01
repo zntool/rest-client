@@ -34,7 +34,7 @@ class AuthorizationRepository extends BaseEloquentCrudRepository implements Auth
         $query->where('project_id', $projectId);
         $query->where('type', 'bearer');
         $query->where('username', $username);
-        return $this->one($query);
+        return $this->findOne($query);
     }
 
 }
