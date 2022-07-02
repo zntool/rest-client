@@ -7,6 +7,7 @@ use yii\base\Module;
 use yii\filters\AccessControl;
 use ZnBundle\Notify\Domain\Interfaces\Services\ToastrServiceInterface;
 use ZnBundle\User\Domain\Enums\UserPermissionEnum;
+use ZnCore\Base\Develop\Helpers\DeprecateHelper;
 use ZnUser\Identity\Domain\Interfaces\Services\IdentityServiceInterface;
 use ZnLib\Components\I18Next\Facades\I18Next;
 use ZnCore\Domain\Entity\Helpers\EntityHelper;
@@ -15,6 +16,8 @@ use ZnLib\Web\Yii2\Helpers\ErrorHelper;
 use ZnTool\RestClient\Domain\Interfaces\Services\AccessServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use ZnTool\RestClient\Yii2\Web\models\IdentityForm;
+
+DeprecateHelper::hardThrow();
 
 class IdentityController extends BaseController
 {
