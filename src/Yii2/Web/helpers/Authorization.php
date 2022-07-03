@@ -2,7 +2,7 @@
 
 namespace ZnTool\RestClient\Yii2\Web\helpers;
 
-use Illuminate\Support\Collection;
+use ZnCore\Domain\Collection\Libs\Collection;
 use ZnTool\RestClient\Domain\Entities\AuthorizationEntity;
 use ZnCore\Base\Arr\Helpers\ArrayHelper;
 

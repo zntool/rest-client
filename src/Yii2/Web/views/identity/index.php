@@ -5,7 +5,7 @@ use yii\helpers\Url;
 
 /**
  * @var \yii\web\View $this
- * @var \ZnCore\Contract\User\Interfaces\Entities\IdentityEntityInterface[] | \Illuminate\Support\Collection $identityCollection
+ * @var \ZnCore\Contract\User\Interfaces\Entities\IdentityEntityInterface[] | \ZnCore\Domain\Collection\Libs\Collection $identityCollection
  */
 
 $this->title = I18Next::t('restclient', 'identity.list_title');

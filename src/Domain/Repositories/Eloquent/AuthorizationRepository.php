@@ -2,7 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Repositories\Eloquent;
 
-use Illuminate\Support\Collection;
+use ZnCore\Domain\Collection\Libs\Collection;
 use ZnCore\Domain\Query\Entities\Query;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 use ZnTool\RestClient\Domain\Entities\AuthorizationEntity;

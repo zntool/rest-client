@@ -8,8 +8,8 @@ use yii\helpers\Html;
 /**
  * @var \yii\web\View $this
  * @var \ZnBundle\User\Domain\Entities\EnvironmentEntity $environmentEntity
- * @var \ZnTool\RestClient\Domain\Entities\ProjectEntity[] | \Illuminate\Support\Collection $projectCollection
- * @var \ZnTool\RestClient\Domain\Entities\ProjectEntity[] | \Illuminate\Support\Collection $hasProjectCollection
+ * @var \ZnTool\RestClient\Domain\Entities\ProjectEntity[] | \ZnCore\Domain\Collection\Libs\Collection $projectCollection
+ * @var \ZnTool\RestClient\Domain\Entities\ProjectEntity[] | \ZnCore\Domain\Collection\Libs\Collection $hasProjectCollection
  */
 
 $this->title = $environmentEntity->getTitle();
