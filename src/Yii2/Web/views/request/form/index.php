@@ -11,7 +11,7 @@ use ZnTool\RestClient\Yii2\Web\helpers\Authorization;
  * @var RequestForm $model
  * @var ActiveForm $form
  * @var \ZnTool\RestClient\Domain\Entities\ProjectEntity $projectEntity
- * @var \ZnCore\Domain\Collection\Libs\Collection $environmentCollection
+ * @var \ZnCore\Domain\Collection\Interfaces\Enumerable $environmentCollection
  */
 
 //$baseUrl = $projectEntity->getUrl() . '/';

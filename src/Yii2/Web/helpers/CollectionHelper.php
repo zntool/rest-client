@@ -10,7 +10,7 @@ class CollectionHelper
 {
 
     /**
-     * @param Collection | BookmarkEntity[] $collection
+     * @param \ZnCore\Domain\Collection\Interfaces\Enumerable | BookmarkEntity[] $collection
      * @return array
      */
     public static function prependCollection(Collection $collection)

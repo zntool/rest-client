@@ -12,7 +12,7 @@ class Authorization
     public static $password = 'Wwwqqq111';
 
     /**
-     * @param Collection | AuthorizationEntity[] $collection
+     * @param \ZnCore\Domain\Collection\Interfaces\Enumerable | AuthorizationEntity[] $collection
      * @return array
      */
     public static function collectionToOptions(Collection $collection)

@@ -8,7 +8,7 @@ use yii\helpers\Html;
 /**
  * @var \yii\web\View $this
  * @var \ZnTool\RestClient\Domain\Entities\ProjectEntity $projectEntity
- * @var \ZnTool\RestClient\Domain\Entities\EnvironmentEntity[] | \ZnCore\Domain\Collection\Libs\Collection $environmentCollection
+ * @var \ZnTool\RestClient\Domain\Entities\EnvironmentEntity[] | \ZnCore\Domain\Collection\Interfaces\Enumerable $environmentCollection
  */
 
 $this->title = $projectEntity->getTitle();
