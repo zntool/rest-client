@@ -2,6 +2,7 @@
 
 namespace ZnTool\RestClient\Yii2\Web\helpers;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnTool\RestClient\Domain\Entities\AuthorizationEntity;
 use ZnCore\Base\Arr\Helpers\ArrayHelper;
@@ -12,10 +13,10 @@ class Authorization
     public static $password = 'Wwwqqq111';
 
     /**
-     * @param \ZnCore\Domain\Collection\Interfaces\Enumerable | AuthorizationEntity[] $collection
+     * @param Enumerable | AuthorizationEntity[] $collection
      * @return array
      */
-    public static function collectionToOptions(Collection $collection)
+    public static function collectionToOptions(Enumerable $collection)
     {
         $loginListForSelect = [];
         if ( ! empty($collection)) {
