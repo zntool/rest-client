@@ -2,6 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Repositories\Eloquent;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnCore\Domain\Query\Entities\Query;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
@@ -26,7 +27,7 @@ class AccessRepository extends BaseEloquentCrudRepository implements AccessRepos
         return $this->findOne($query);
     }
 
-    public function allByUserId(int $userId): Collection
+    public function allByUserId(int $userId): Enumerable
     {
         $query = new Query;
         $query->where('user_id', $userId);

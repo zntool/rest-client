@@ -2,6 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Services;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnCore\Domain\Entity\Helpers\EntityHelper;
 use ZnCore\Domain\Entity\Exceptions\NotFoundException;
@@ -60,11 +61,11 @@ class BookmarkService extends BaseCrudService implements BookmarkServiceInterfac
         return $this->getRepository()->findOneByHash($hash);
     }
 
-    public function allFavoriteByProject(int $projectId): Collection {
+    public function allFavoriteByProject(int $projectId): Enumerable {
         return $this->getRepository()->allFavoriteByProject($projectId);
     }
 
-    public function allHistoryByProject(int $projectId): Collection {
+    public function allHistoryByProject(int $projectId): Enumerable {
         return $this->getRepository()->allHistoryByProject($projectId);
     }
 

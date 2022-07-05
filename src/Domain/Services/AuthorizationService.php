@@ -2,6 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Services;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnCore\Domain\Service\Base\BaseCrudService;
 use ZnTool\RestClient\Domain\Entities\AuthorizationEntity;
@@ -16,7 +17,7 @@ class AuthorizationService extends BaseCrudService implements AuthorizationServi
         $this->setRepository($repository);
     }
 
-    public function allByProjectId(int $projectId, string $type = null): Collection
+    public function allByProjectId(int $projectId, string $type = null): Enumerable
     {
         return $this->getRepository()->allByProjectId($projectId, $type);
     }

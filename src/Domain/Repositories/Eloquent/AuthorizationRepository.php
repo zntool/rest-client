@@ -2,6 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Repositories\Eloquent;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnCore\Domain\Query\Entities\Query;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
@@ -18,7 +19,7 @@ class AuthorizationRepository extends BaseEloquentCrudRepository implements Auth
         return AuthorizationEntity::class;
     }
 
-    public function allByProjectId(int $projectId, string $type = null): Collection
+    public function allByProjectId(int $projectId, string $type = null): Enumerable
     {
         $query = new Query;
         $query->where('project_id', $projectId);

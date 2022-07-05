@@ -2,6 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Interfaces\Repositories;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnCore\Domain\Repository\Interfaces\CrudRepositoryInterface;
 use ZnCore\Domain\Entity\Exceptions\NotFoundException;
@@ -19,9 +20,9 @@ interface BookmarkRepositoryInterface extends CrudRepositoryInterface
      */
     public function findOneByHash(string $hash): BookmarkEntity;
 
-    public function allFavoriteByProject(int $projectId): Collection;
+    public function allFavoriteByProject(int $projectId): Enumerable;
 
-    public function allHistoryByProject(int $projectId): Collection;
+    public function allHistoryByProject(int $projectId): Enumerable;
 
     public function clearHistory(int $projectId): void;
 }

@@ -2,6 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Interfaces\Services;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnCore\Domain\Service\Interfaces\CrudServiceInterface;
 use ZnCore\Domain\Entity\Exceptions\NotFoundException;
@@ -13,9 +14,9 @@ interface AuthorizationServiceInterface extends CrudServiceInterface
     /**
      * @param int $projectId
      * @param string|null $type
-     * @return Collection
+     * @return Enumerable
      */
-    public function allByProjectId(int $projectId, string $type = null): Collection;
+    public function allByProjectId(int $projectId, string $type = null): Enumerable;
 
     /**
      * @param int $projectId

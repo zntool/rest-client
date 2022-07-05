@@ -2,6 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Interfaces\Repositories;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnCore\Domain\Repository\Interfaces\CrudRepositoryInterface;
 use ZnCore\Domain\Entity\Exceptions\NotFoundException;
@@ -18,6 +19,6 @@ interface AccessRepositoryInterface extends CrudRepositoryInterface
      */
     public function findOneByTie(int $projectId, int $userId): AccessEntity;
 
-    public function allByUserId(int $userId): Collection;
+    public function allByUserId(int $userId): Enumerable;
 
 }

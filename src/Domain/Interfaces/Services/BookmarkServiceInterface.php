@@ -2,6 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Interfaces\Services;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnCore\Base\Validation\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Service\Interfaces\CrudServiceInterface;
@@ -41,15 +42,15 @@ interface BookmarkServiceInterface extends CrudServiceInterface
 
     /**
      * @param int $projectId
-     * @return Collection
+     * @return Enumerable
      */
-    public function allFavoriteByProject(int $projectId): Collection;
+    public function allFavoriteByProject(int $projectId): Enumerable;
 
     /**
      * @param int $projectId
-     * @return Collection
+     * @return Enumerable
      */
-    public function allHistoryByProject(int $projectId): Collection;
+    public function allHistoryByProject(int $projectId): Enumerable;
 
     /**
      * @param int $projectId

@@ -2,6 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Repositories\Eloquent;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnCore\Domain\Query\Entities\Query;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
@@ -32,7 +33,7 @@ class BookmarkRepository extends BaseEloquentCrudRepository implements BookmarkR
         return $this->findOne($query);
     }
 
-    public function allFavoriteByProject(int $projectId): Collection
+    public function allFavoriteByProject(int $projectId): Enumerable
     {
         $query = new Query;
         $query->where('status', StatusEnum::FAVORITE);
@@ -40,7 +41,7 @@ class BookmarkRepository extends BaseEloquentCrudRepository implements BookmarkR
         return $this->findAll($query);
     }
 
-    public function allHistoryByProject(int $projectId): Collection
+    public function allHistoryByProject(int $projectId): Enumerable
     {
         $query = new Query;
         $query->where('status', StatusEnum::HISTORY);
