@@ -5,7 +5,7 @@ use yii\helpers\Url;
 
 /**
  * @var \yii\web\View $this
- * @var \ZnBundle\User\Domain\Entities\EnvironmentEntity[] | \ZnCore\Domain\Collection\Interfaces\Enumerable $environmentCollection
+ * @var \ZnBundle\User\Domain\Entities\EnvironmentEntity[] | \ZnCore\Collection\Interfaces\Enumerable $environmentCollection
  * @var \ZnBundle\User\Domain\Entities\ProjectEntity $projectEntity
  */
 

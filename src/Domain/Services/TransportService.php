@@ -5,7 +5,7 @@ namespace ZnTool\RestClient\Domain\Services;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use ZnCore\Domain\Service\Base\BaseService;
-use ZnCore\Domain\Entity\Exceptions\NotFoundException;
+use ZnCore\Entity\Exceptions\NotFoundException;
 use ZnTool\RestClient\Domain\Entities\ProjectEntity;
 use ZnTool\RestClient\Domain\Interfaces\Services\AuthorizationServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\TransportServiceInterface;

@@ -2,7 +2,7 @@
 
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
-use ZnCore\Domain\Entity\Helpers\CollectionHelper;
+use ZnCore\Entity\Helpers\CollectionHelper;
 use ZnTool\RestClient\Yii2\Web\models\RequestForm;
 use ZnTool\RestClient\Yii2\Web\helpers\Authorization;
 
@@ -11,7 +11,7 @@ use ZnTool\RestClient\Yii2\Web\helpers\Authorization;
  * @var RequestForm $model
  * @var ActiveForm $form
  * @var \ZnTool\RestClient\Domain\Entities\ProjectEntity $projectEntity
- * @var \ZnCore\Domain\Collection\Interfaces\Enumerable $environmentCollection
+ * @var \ZnCore\Collection\Interfaces\Enumerable $environmentCollection
  */
 
 //$baseUrl = $projectEntity->getUrl() . '/';

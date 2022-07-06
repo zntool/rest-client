@@ -5,7 +5,7 @@ use yii\helpers\Url;
 
 /**
  * @var \yii\web\View $this
- * @var \ZnTool\RestClient\Domain\Entities\ProjectEntity[] | \ZnCore\Domain\Collection\Interfaces\Enumerable $projectCollection
+ * @var \ZnTool\RestClient\Domain\Entities\ProjectEntity[] | \ZnCore\Collection\Interfaces\Enumerable $projectCollection
  */
 
 $this->title = I18Next::t('restclient', 'project.list_title');

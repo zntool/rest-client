@@ -2,8 +2,8 @@
 
 namespace ZnTool\RestClient\Domain\Interfaces\Services;
 
-use ZnCore\Domain\Collection\Interfaces\Enumerable;
-use ZnCore\Domain\Entity\Exceptions\NotFoundException;
+use ZnCore\Collection\Interfaces\Enumerable;
+use ZnCore\Entity\Exceptions\NotFoundException;
 use ZnCore\Domain\Service\Interfaces\CrudServiceInterface;
 use ZnTool\RestClient\Domain\Entities\AuthorizationEntity;
 

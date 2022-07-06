@@ -2,7 +2,7 @@
 
 namespace ZnTool\RestClient\Yii2\Web\controllers;
 
-use ZnCore\Domain\Entity\Exceptions\NotFoundException;
+use ZnCore\Entity\Exceptions\NotFoundException;
 use ZnTool\RestClient\Domain\Entities\ProjectEntity;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
 use Yii;

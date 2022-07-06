@@ -3,7 +3,7 @@
 namespace ZnTool\RestClient\Yii2\Web\helpers;
 
 use ZnCore\Base\Arr\Helpers\ArrayHelper;
-use ZnCore\Domain\Collection\Interfaces\Enumerable;
+use ZnCore\Collection\Interfaces\Enumerable;
 use ZnTool\RestClient\Domain\Entities\AuthorizationEntity;
 
 class Authorization

@@ -2,7 +2,7 @@
 
 namespace ZnTool\RestClient\Yii2\Web\helpers;
 
-use ZnCore\Domain\Entity\Helpers\EntityHelper;
+use ZnCore\Entity\Helpers\EntityHelper;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 use yii\base\Model;
 use ZnTool\RestClient\Yii2\Web\models\RequestForm;

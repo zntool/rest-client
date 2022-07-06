@@ -2,7 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Services;
 
-use ZnCore\Domain\Collection\Interfaces\Enumerable;
+use ZnCore\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Service\Base\BaseCrudService;
 use ZnTool\RestClient\Domain\Entities\AuthorizationEntity;
 use ZnTool\RestClient\Domain\Interfaces\Repositories\AuthorizationRepositoryInterface;

@@ -2,9 +2,9 @@
 
 namespace ZnTool\RestClient\Domain\Services;
 
-use ZnCore\Domain\Collection\Interfaces\Enumerable;
-use ZnCore\Domain\Entity\Exceptions\NotFoundException;
-use ZnCore\Domain\Entity\Helpers\EntityHelper;
+use ZnCore\Collection\Interfaces\Enumerable;
+use ZnCore\Entity\Exceptions\NotFoundException;
+use ZnCore\Entity\Helpers\EntityHelper;
 use ZnCore\Domain\Service\Base\BaseCrudService;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 use ZnTool\RestClient\Domain\Enums\StatusEnum;

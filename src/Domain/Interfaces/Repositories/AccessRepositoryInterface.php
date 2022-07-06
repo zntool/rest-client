@@ -2,8 +2,8 @@
 
 namespace ZnTool\RestClient\Domain\Interfaces\Repositories;
 
-use ZnCore\Domain\Collection\Interfaces\Enumerable;
-use ZnCore\Domain\Entity\Exceptions\NotFoundException;
+use ZnCore\Collection\Interfaces\Enumerable;
+use ZnCore\Entity\Exceptions\NotFoundException;
 use ZnCore\Domain\Repository\Interfaces\CrudRepositoryInterface;
 use ZnTool\RestClient\Domain\Entities\AccessEntity;
 

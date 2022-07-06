@@ -10,7 +10,7 @@ use ZnBundle\User\Domain\Enums\UserPermissionEnum;
 use ZnCore\Base\Develop\Helpers\DeprecateHelper;
 use ZnUser\Identity\Domain\Interfaces\Services\IdentityServiceInterface;
 use ZnLib\Components\I18Next\Facades\I18Next;
-use ZnCore\Domain\Entity\Helpers\EntityHelper;
+use ZnCore\Entity\Helpers\EntityHelper;
 use ZnLib\Rest\Yii2\Helpers\Behavior;
 use ZnLib\Web\Yii2\Helpers\ErrorHelper;
 use ZnTool\RestClient\Domain\Interfaces\Services\AccessServiceInterface;
