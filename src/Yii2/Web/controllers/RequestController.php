@@ -6,7 +6,7 @@ use yii\filters\AccessControl;
 use ZnLib\Rest\Yii2\Helpers\Behavior;
 use ZnLib\Components\Http\Enums\HttpHeaderEnum;
 use ZnYii\Base\Helpers\UploadHelper;
-use ZnLib\Components\I18Next\Interfaces\Services\TranslationServiceInterface;
+use ZnLib\I18Next\Interfaces\Services\TranslationServiceInterface;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
 use ZnTool\RestClient\Domain\Interfaces\Services\BookmarkServiceInterface;

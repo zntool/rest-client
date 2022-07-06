@@ -2,7 +2,7 @@
 
 namespace ZnTool\RestClient\Yii2\Web\models;
 
-use ZnLib\Components\I18Next\Facades\I18Next;
+use ZnLib\I18Next\Facades\I18Next;
 use yii\base\Model;
 
 class EnvironmentForm extends Model

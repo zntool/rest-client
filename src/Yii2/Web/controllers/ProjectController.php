@@ -7,7 +7,7 @@ use Yii;
 use yii\base\Module;
 use yii\filters\AccessControl;
 use ZnBundle\Notify\Domain\Interfaces\Services\ToastrServiceInterface;
-use ZnLib\Components\I18Next\Facades\I18Next;
+use ZnLib\I18Next\Facades\I18Next;
 use ZnCore\Entity\Helpers\EntityHelper;
 use ZnLib\Rest\Yii2\Helpers\Behavior;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;
