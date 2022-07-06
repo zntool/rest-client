@@ -4,17 +4,17 @@ namespace ZnTool\RestClient\Domain\Services;
 
 use Packages\Common\Enums\Rbac\ApplicationPermissionEnum;
 use ZnCore\Entity\Helpers\CollectionHelper;
-use ZnCore\Domain\Query\Entities\Where;
-use ZnCore\Domain\Query\Enums\OperatorEnum;
+use ZnCore\Query\Entities\Where;
+use ZnCore\Query\Enums\OperatorEnum;
 use ZnCore\Entity\Helpers\EntityHelper;
-use ZnCore\Domain\Query\Entities\Query;
+use ZnCore\Query\Entities\Query;
 use ZnCore\Entity\Exceptions\NotFoundException;
 use ZnTool\RestClient\Domain\Entities\ProjectEntity;
 use ZnTool\RestClient\Domain\Interfaces\Repositories\AccessRepositoryInterface;
 use ZnTool\RestClient\Domain\Interfaces\Repositories\BookmarkRepositoryInterface;
 use ZnTool\RestClient\Domain\Interfaces\Repositories\ProjectRepositoryInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\ProjectServiceInterface;
-use ZnCore\Domain\Service\Base\BaseCrudService;
+use ZnCore\Service\Base\BaseCrudService;
 use Yii;
 use yii\web\NotFoundHttpException;
 

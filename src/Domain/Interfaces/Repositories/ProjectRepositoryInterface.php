@@ -2,7 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Interfaces\Repositories;
 
-use ZnCore\Domain\Repository\Interfaces\CrudRepositoryInterface;
+use ZnCore\Repository\Interfaces\CrudRepositoryInterface;
 use ZnCore\Entity\Exceptions\NotFoundException;
 use ZnTool\RestClient\Domain\Entities\ProjectEntity;
 

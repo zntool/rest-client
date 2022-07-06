@@ -4,7 +4,7 @@ namespace ZnTool\RestClient\Domain\Interfaces\Services;
 
 use ZnCore\Collection\Interfaces\Enumerable;
 use ZnCore\Entity\Exceptions\NotFoundException;
-use ZnCore\Domain\Service\Interfaces\CrudServiceInterface;
+use ZnCore\Service\Interfaces\CrudServiceInterface;
 use ZnTool\RestClient\Domain\Entities\AuthorizationEntity;
 
 interface AuthorizationServiceInterface extends CrudServiceInterface

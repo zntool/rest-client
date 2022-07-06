@@ -5,7 +5,7 @@ namespace ZnTool\RestClient\Domain\Services;
 use ZnCore\Collection\Interfaces\Enumerable;
 use ZnCore\Entity\Exceptions\NotFoundException;
 use ZnCore\Entity\Helpers\EntityHelper;
-use ZnCore\Domain\Service\Base\BaseCrudService;
+use ZnCore\Service\Base\BaseCrudService;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 use ZnTool\RestClient\Domain\Enums\StatusEnum;
 use ZnTool\RestClient\Domain\Interfaces\Repositories\BookmarkRepositoryInterface;

@@ -2,7 +2,7 @@
 
 namespace ZnTool\RestClient\Domain\Interfaces\Repositories;
 
-use ZnCore\Domain\Repository\Interfaces\CrudRepositoryInterface;
+use ZnCore\Repository\Interfaces\CrudRepositoryInterface;
 
 interface AuthorizationRepositoryInterface extends CrudRepositoryInterface
 {

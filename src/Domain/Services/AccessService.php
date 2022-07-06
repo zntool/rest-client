@@ -4,7 +4,7 @@ namespace ZnTool\RestClient\Domain\Services;
 
 use ZnTool\RestClient\Domain\Interfaces\Repositories\AccessRepositoryInterface;
 use ZnTool\RestClient\Domain\Interfaces\Services\AccessServiceInterface;
-use ZnCore\Domain\Service\Base\BaseCrudService;
+use ZnCore\Service\Base\BaseCrudService;
 
 class AccessService extends BaseCrudService implements AccessServiceInterface
 {

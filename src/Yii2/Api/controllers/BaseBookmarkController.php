@@ -2,7 +2,7 @@
 
 namespace ZnTool\RestClient\Yii2\Api\controllers;
 
-use ZnCore\Domain\Query\Helpers\QueryHelper;
+use ZnCore\Query\Helpers\QueryHelper;
 use ZnCore\Entity\Exceptions\NotFoundException;
 use ZnLib\Web\Controller\Helpers\WebQueryHelper;
 use ZnTool\RestClient\Domain\Enums\RestClientPermissionEnum;

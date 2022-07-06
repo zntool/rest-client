@@ -2,7 +2,7 @@
 
 namespace ZnTool\RestClient\Yii2\Web\helpers;
 
-use ZnCore\Base\Arr\Helpers\ArrayHelper;
+use ZnCore\Arr\Helpers\ArrayHelper;
 use ZnCore\Collection\Interfaces\Enumerable;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 

@@ -3,7 +3,7 @@
 namespace ZnTool\RestClient\Domain\Entities;
 
 use Symfony\Component\Validator\Mapping\ClassMetadata;
-use ZnCore\Base\Enum\Helpers\EnumHelper;
+use ZnCore\Enum\Helpers\EnumHelper;
 use ZnCore\Entity\Interfaces\EntityIdInterface;
 use ZnCore\Validation\Interfaces\ValidationByMetadataInterface;
 use ZnLib\Components\Http\Enums\HttpMethodEnum;

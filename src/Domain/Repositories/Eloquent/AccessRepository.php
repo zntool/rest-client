@@ -3,7 +3,7 @@
 namespace ZnTool\RestClient\Domain\Repositories\Eloquent;
 
 use ZnCore\Collection\Interfaces\Enumerable;
-use ZnCore\Domain\Query\Entities\Query;
+use ZnCore\Query\Entities\Query;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 use ZnTool\RestClient\Domain\Entities\AccessEntity;
 use ZnTool\RestClient\Domain\Interfaces\Repositories\AccessRepositoryInterface;

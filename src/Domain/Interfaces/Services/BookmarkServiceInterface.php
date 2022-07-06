@@ -5,7 +5,7 @@ namespace ZnTool\RestClient\Domain\Interfaces\Services;
 use ZnCore\Validation\Exceptions\UnprocessibleEntityException;
 use ZnCore\Collection\Interfaces\Enumerable;
 use ZnCore\Entity\Exceptions\NotFoundException;
-use ZnCore\Domain\Service\Interfaces\CrudServiceInterface;
+use ZnCore\Service\Interfaces\CrudServiceInterface;
 use ZnTool\RestClient\Domain\Entities\BookmarkEntity;
 
 interface BookmarkServiceInterface extends CrudServiceInterface

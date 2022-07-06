@@ -4,8 +4,8 @@ namespace ZnTool\RestClient\Domain\Services;
 
 use ZnTool\RestClient\Domain\Interfaces\Services\EnvironmentServiceInterface;
 use ZnTool\RestClient\Domain\Interfaces\Repositories\EnvironmentRepositoryInterface;
-use ZnCore\Domain\Service\Base\BaseCrudService;
-use ZnCore\Domain\Query\Entities\Query;
+use ZnCore\Service\Base\BaseCrudService;
+use ZnCore\Query\Entities\Query;
 
 class EnvironmentService extends BaseCrudService implements EnvironmentServiceInterface
 {
